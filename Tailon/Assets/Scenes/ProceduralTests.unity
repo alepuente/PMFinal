@@ -222,12 +222,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf1ff7fd7e5f124a8b948d7c5e2c44d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dungeonWidth: 80
-  dungeonHeight: 50
-  roomMaxSize: 12
-  roomMinSize: 8
-  roomMaxMonsters: 3
-  maxRooms: 10
+  dungeonWidth: 150
+  dungeonHeight: 150
+  roomMaxSize: 40
+  roomMinSize: 30
+  roomMaxMonsters: 0
+  maxRooms: 30
   floorTilePrefab: {fileID: 1000013512629992, guid: 2d74436598b81bc4592cec2383ffd976,
     type: 2}
   wallTilePrefab: {fileID: 1000014115194544, guid: d5668a10774f13a4885ba2d70c3678e0,
