@@ -52,8 +52,8 @@ public class DungeonController:MonoBehaviour
 
 		_tileObjects = new GameObject[dungeonWidth, dungeonHeight];
 
-		float tileWidth = floorTilePrefab.GetComponent<Renderer>().bounds.size.x;
-		float tileHeight = floorTilePrefab.GetComponent<Renderer>().bounds.size.y;
+		float tileWidth = floorTilePrefab.GetComponent<Renderer>().bounds.size.z;
+		float tileHeight = floorTilePrefab.GetComponent<Renderer>().bounds.size.x;
 
 		Vector3 translation = new Vector3();
 		for (int x = 0; x < dungeonWidth; x++) 
@@ -63,20 +63,36 @@ public class DungeonController:MonoBehaviour
 				Tile currentTile = _tileMap[x, y];
 				GameObject tileObject = null;
 
-				if (currentTile.blocked == true)
+				if (currentTile.blocked != true)
 				{
-					tileObject = (GameObject)GameObject.Instantiate(wallTilePrefab);
+					tileObject = (GameObject)GameObject.Instantiate (floorTilePrefab);
+					translation.x = tileWidth * x;
+					translation.z = -tileHeight * y;
+					tileObject.transform.Translate (translation);
+					_tileObjects [x, y] = tileObject;
 				}
 				else
 				{
-					tileObject = (GameObject)GameObject.Instantiate(floorTilePrefab);
-				}
-		
-				translation.x = tileWidth * x;
-				translation.z = -tileHeight * y;
-				tileObject.transform.Translate(translation);
+					bool wall = false;
 
-				_tileObjects[x, y] = tileObject;
+					//checkear si es pared de algun room
+					for (int i = y - 1; i <= y + 1; i++) {
+						for (int j = x - 1; j <= x + 1; j++) {
+							if( i > 0 && i < dungeonHeight)
+							if( j > 0 && j < dungeonWidth )
+							if ( _tileMap[j, i].blocked != true)
+								wall = true;
+						}
+					}
+					if (wall) {
+						tileObject = (GameObject)GameObject.Instantiate(wallTilePrefab);
+						translation.x = tileWidth * x;
+						translation.z = -tileHeight * y;
+						tileObject.transform.Translate(translation);
+						_tileObjects[x, y] = tileObject;
+					}
+		
+				}
 			}
 		}
 

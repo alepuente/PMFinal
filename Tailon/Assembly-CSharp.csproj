@@ -49,6 +49,8 @@
      <Compile Include="Assets\Scripts\ProceduralScripts\AABBGenerator.cs" />
      <Compile Include="Assets\Scripts\ProceduralScripts\DungeonController.cs" />
      <Compile Include="Assets\Scripts\ProceduralScripts\Tile.cs" />
+     <Compile Include="Assets\Scripts\ProceduralScripts\WallTilesPerformance.cs" />
+     <Compile Include="Assets\Scripts\Projectile.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
