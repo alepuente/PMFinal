@@ -27,6 +27,7 @@ namespace UnityStandardAssets.Cameras
 		private Vector3 m_PivotEulers;
 		private Quaternion m_PivotTargetRot;
 		private Quaternion m_TransformTargetRot;
+        public GameObject head;
 
         protected override void Awake()
         {
@@ -82,6 +83,7 @@ namespace UnityStandardAssets.Cameras
             // Rotate the rig (the root object) around Y axis only:
             m_TransformTargetRot = Quaternion.Euler(0f, m_LookAngle, 0f);
             m_Target.transform.Rotate(0, x * m_TurnSpeed, 0);
+            head.transform.rotation = m_Pivot.transform.rotation;
 
 
             if (m_VerticalAutoReturn)

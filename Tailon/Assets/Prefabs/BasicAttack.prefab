@@ -23,7 +23,7 @@ GameObject:
   - 135: {fileID: 135000011053238790}
   - 23: {fileID: 23000010754745272}
   - 114: {fileID: 114000013240522142}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BasicAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
