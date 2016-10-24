@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class AttackController : MonoBehaviour {
+public class RangeAttackController : MonoBehaviour {
 
     //Attack
     public GameObject basicAttack;
@@ -11,10 +11,12 @@ public class AttackController : MonoBehaviour {
     private float timerAttack;
     public int _maxAmmo = 10;
     public bool canGrow = false;
+    PlayerController _playerController;
 
 
     void Start()
     {
+        _playerController = GetComponentInParent<PlayerController>();
         _ammo = new List<GameObject>();
         for (int i = 0; i < _maxAmmo; i++)
         {
@@ -26,24 +28,16 @@ public class AttackController : MonoBehaviour {
 
     void Update()
     {
-        shoot();
+        if (_playerController._range)
+        {           
+        shoot(); 
+        }
     }
     void shoot()
     {
         timerAttack += Time.deltaTime;
         if (Input.GetMouseButton(0) && timerAttack > attackSpeed)
-        {
-            /*for (int i = 0; i < _ammo.Count; i++)
-            {
-                if (!_ammo[i].activeInHierarchy)
-                {
-                    _ammo[i].transform.position = gameObject.transform.position;
-                    _ammo[i].transform.rotation = gameObject.transform.rotation;
-                    _ammo[i].SetActive(true);
-                    timerAttack = 0.0f;
-                    break;
-                }
-            }*/
+        {            
             GameObject obj = getPoolObject();
             if (obj == null) return;
             obj.transform.position = gameObject.transform.position;

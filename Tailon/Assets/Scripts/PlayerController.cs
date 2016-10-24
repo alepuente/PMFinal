@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float _dash = 500f;   
     private Rigidbody rgb;
     private bool canJump;
+    public bool _melee = true;
+    public bool _range = false;
 
 
 

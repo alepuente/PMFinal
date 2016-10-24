@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000013279110968}
   - 33: {fileID: 33000011036429206}
   - 23: {fileID: 23000011860374000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - 4: {fileID: 4000010943290708}
   - 33: {fileID: 33000011217189330}
   - 23: {fileID: 23000010089858270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - 114: {fileID: 114000011977950426}
   - 54: {fileID: 54000013712816068}
   - 65: {fileID: 65000012690693450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012778553488}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010347189640}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - 4: {fileID: 4000011983394758}
   - 33: {fileID: 33000011054360444}
   - 23: {fileID: 23000014176628160}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - 4: {fileID: 4000011543755474}
   - 33: {fileID: 33000013212121474}
   - 23: {fileID: 23000011999390800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - 4: {fileID: 4000013891424528}
   - 33: {fileID: 33000013443545998}
   - 23: {fileID: 23000012308742526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,9 +154,10 @@ GameObject:
   - 4: {fileID: 4000013719212354}
   - 33: {fileID: 33000012109789202}
   - 23: {fileID: 23000011004450218}
-  m_Layer: 0
+  - 114: {fileID: 114000011713274380}
+  m_Layer: 8
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,7 +223,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011278575072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.12, y: 1.16, z: 11.89}
+  m_LocalPosition: {x: 12.12, y: 2.056, z: 11.89}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -529,6 +530,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 3.8483124, z: 1.8339036}
   m_Center: {x: 0, y: 0.015790224, z: 0.39348793}
+--- !u!114 &114000011713274380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013895077668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e0729004090fd7459f2e677ca0c2f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicAttack: {fileID: 1000013455379516, guid: 3c4aafabd18c8ef42aacdf4639a49523,
+    type: 2}
+  attackSpeed: 0.1
+  _maxAmmo: 0
+  canGrow: 1
 --- !u!114 &114000011977950426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -543,7 +560,3 @@ MonoBehaviour:
   _velocity: 0.1
   _jump: 300
   _dash: 500
-  basicAttack: {fileID: 1000013455379516, guid: 3c4aafabd18c8ef42aacdf4639a49523,
-    type: 2}
-  attackSpeed: 0.2
-  _maxAmmo: 10

@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
     public float _speed;
     void OnEnable()
     {
-        Invoke("Destroy", 1f);
+        Invoke("Destroy", 2f);
     }
     void Destroy()
     {

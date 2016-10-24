@@ -38,12 +38,17 @@ namespace UnityStandardAssets.Cameras
 			m_PivotEulers = m_Pivot.rotation.eulerAngles;
 
 	        m_PivotTargetRot = m_Pivot.transform.localRotation;
-			m_TransformTargetRot = transform.localRotation;
+			m_TransformTargetRot = transform.localRotation;        
+
         }
 
+        
 
         protected void Update()
         {
+          
+            head = GameObject.FindGameObjectWithTag("Head").gameObject;
+           
             HandleRotationMovement();
             if (m_LockCursor && Input.GetMouseButtonUp(0))
             {
