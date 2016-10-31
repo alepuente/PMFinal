@@ -24,7 +24,7 @@ GameObject:
   - 23: {fileID: 23000012157834986}
   - 65: {fileID: 65000011553821674}
   m_Layer: 0
-  m_Name: floorTile
+  m_Name: floorTile2
   m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 60bf96a3f48246f43b649d46f48d61fc, type: 2}
+  - {fileID: 2100000, guid: 7b5b5b8908fe5ef4584e4129660c14ce, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}

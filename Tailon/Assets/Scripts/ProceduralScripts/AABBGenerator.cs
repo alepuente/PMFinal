@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AABBGenerator 
 {
 	public int startX = 0;
 	public int startY = 0;
-	public ArrayList rooms = null;
+	public List<Room> ArrayRooms = null;
 
 	private int _dungeonWidth = 80;
 	private int _dungeonHeight = 50;
@@ -40,7 +41,7 @@ public class AABBGenerator
 			}
 		}
 
-		rooms = new ArrayList();
+		ArrayRooms = new List<Room>();
 		
 		int roomX, roomY, roomWidth, roomHeight;
 		roomX = roomY = roomWidth = roomHeight = 0; // wat
@@ -53,14 +54,17 @@ public class AABBGenerator
 			roomX = (int) Random.Range(0, _dungeonWidth - roomWidth - 1);
 			roomY = (int) Random.Range(0, _dungeonHeight - roomHeight - 1);
 			
-			Rect newRoom = new Rect(roomX, roomY, roomWidth, roomHeight);
+			//Rect newRoom = new Rect(roomX, roomY, roomWidth, roomHeight);
+			Room newRoom = new Room(roomX, roomY, roomWidth, roomHeight);
+			newRoom.canSpawnEnemys = true;
+
 			bool failed = false;
 
-			for (int roomIndex = 0; roomIndex < rooms.Count; roomIndex++)
+			for (int roomIndex = 0; roomIndex < ArrayRooms.Count; roomIndex++)
 			{
-				Rect otherRoom = (Rect)rooms[roomIndex];
+				Room otherRoom = (Room)ArrayRooms[roomIndex];
 
-				if (newRoom.Overlaps(otherRoom))
+				if (newRoom.rect.Overlaps(otherRoom.rect))
 				{
 					failed = true;
 					break;
@@ -69,9 +73,9 @@ public class AABBGenerator
 			
 			if (!failed)
 			{
-				createRoom(newRoom);
+				createRoom(newRoom.rect);
 				
-				Vector2 center = newRoom.center;
+				Vector2 center = newRoom.rect.center;
 				int newX, newY;
 				
 				newX = (int)center.x;
@@ -84,8 +88,8 @@ public class AABBGenerator
 				}
 				else
 				{
-					Rect prevRoom = (Rect)rooms[_numRooms - 1];
-					Vector2 prevCenter = prevRoom.center;
+					Room prevRoom = (Room)ArrayRooms[_numRooms - 1];
+					Vector2 prevCenter = prevRoom.rect.center;
 					int prevX = (int)prevCenter.x;
 					int prevY = (int)prevCenter.y;
 					
@@ -101,7 +105,7 @@ public class AABBGenerator
 					}
 				}
 
-				rooms.Add(newRoom);
+				ArrayRooms.Add(newRoom);
 				_numRooms++;
 			}
 		}
@@ -111,6 +115,8 @@ public class AABBGenerator
 
 	private void createRoom(Rect rect)
 	{
+		int room = (int)Random.Range (1, 3);
+		
 		for(int x = (int)rect.xMin + 1; x < (int)rect.xMax; x++)
 		{
 			for(int y = (int)rect.yMin + 1; y < (int)rect.yMax; y++)
@@ -118,6 +124,24 @@ public class AABBGenerator
 				Tile currentTile = _tileMap[x, y];
 				currentTile.blocked = false;
 				currentTile.blockSight = false;
+
+				switch(room){
+				case 1:
+					{
+						currentTile.room1 = true;
+						break;
+					}
+				case 2:
+					{
+						currentTile.room2 = true;
+						break;
+					}
+				default:
+					{
+						currentTile.room1 = true;
+						break;
+					}
+				}
 			}
 		}
 	}

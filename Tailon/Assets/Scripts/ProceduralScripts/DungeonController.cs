@@ -13,6 +13,7 @@ public class DungeonController:MonoBehaviour
 	public int maxRooms = 10;
 
 	public GameObject floorTilePrefab = null;
+	public GameObject floorTilePrefab2 = null;
 	public GameObject wallTilePrefab = null;
 	public GameObject playerPrefab = null;
 
@@ -30,15 +31,8 @@ public class DungeonController:MonoBehaviour
 	private Tile[,] _tileMap = null;
 	private GameObject[,] _tileObjects = null;
 
-	enum GameState {Playing, Pass, None};
-
-	private GameState _gameState = GameState.Playing;
-	//private GameState _playerAction = GameState.None;
-	
 	void Start()
 	{
-		// creamos el sprite del jugador
-		_player = (GameObject)Instantiate(playerPrefab);
 
 		// generamos el dungeon
 		_dungeonGenerator = new AABBGenerator();
@@ -65,7 +59,12 @@ public class DungeonController:MonoBehaviour
 
 				if (currentTile.blocked != true)
 				{
+					if(currentTile.room1)	tileObject = (GameObject)GameObject.Instantiate (floorTilePrefab);
+					else
+					if(currentTile.room2)	tileObject = (GameObject)GameObject.Instantiate (floorTilePrefab2);
+					else
 					tileObject = (GameObject)GameObject.Instantiate (floorTilePrefab);
+					
 					translation.x = tileWidth * x;
 					translation.z = -tileHeight * y;
 					tileObject.transform.Translate (translation);
@@ -96,58 +95,35 @@ public class DungeonController:MonoBehaviour
 			}
 		}
 
-		// crear enemigos
-		foreach (Rect room in _dungeonGenerator.rooms) 
+		foreach (Room room in _dungeonGenerator.ArrayRooms) 
 		{
 			placeEnemies(room);
 		}
 
-		GameObject firstTile = (GameObject) _tileObjects[_dungeonGenerator.startX, _dungeonGenerator.startY];
-		_player.transform.Translate(firstTile.transform.position);
-
-		_playerX = _dungeonGenerator.startX;
-		_playerY = _dungeonGenerator.startY;
+		int PlayerRoomSpawnNumer = Random.Range(0, _dungeonGenerator.ArrayRooms.Count);
+		Room PlayerRoomSpawn = _dungeonGenerator.ArrayRooms [PlayerRoomSpawnNumer];
+		_dungeonGenerator.ArrayRooms [PlayerRoomSpawnNumer].canSpawnEnemys = false;
+		_player = (GameObject)Instantiate (playerPrefab);
+		_playerX = (int)Random.Range(PlayerRoomSpawn.rect.xMin + 1, PlayerRoomSpawn.rect.xMax);
+		_playerY = (int)Random.Range(PlayerRoomSpawn.rect.yMin + 1, PlayerRoomSpawn.rect.yMax);	
+		GameObject currentPlayerTile = (GameObject) _tileObjects[_playerX, _playerY];
+		//currentPlayerTile.transform.localScale = new Vector3 (1, 10, 1);
+		_player.transform.position = currentPlayerTile.transform.position;
+		_player.transform.position += (Vector3.up * 5);
 	}
 
-	void Update()
-	{
-		if (_gameState == GameState.Playing) 
-		{	
-			if (Input.GetKeyUp(KeyCode.UpArrow))
-			{
-				//movePlayerOrAttack(0, -1);
-				_playerY--;
-			} 
-			else if (Input.GetKeyUp(KeyCode.DownArrow)) 
-			{
-				//movePlayerOrAttack(0, 1);
-				_playerY++;
-			}
-			else if (Input.GetKeyUp(KeyCode.LeftArrow)) 
-			{
-				//movePlayerOrAttack(-1, 0);
-				_playerX--;
-			}
-			else if (Input.GetKeyUp(KeyCode.RightArrow))
-			{
-				//movePlayerOrAttack(1, 0);
-				_playerX++;
-			}
-		}
-	}
-
-	private void placeEnemies(Rect room)
+	private void placeEnemies(Room room)
 	{
 		int monsterCount = Random.Range(0, roomMaxMonsters);
 		
 		for(int i = 0; i < monsterCount; i++)
 		{
-			int x = (int)Random.Range(room.xMin + 1, room.xMax);
-			int y = (int)Random.Range(room.yMin + 1, room.yMax);
+			int x = (int)Random.Range(room.rect.xMin + 1, room.rect.xMax);
+			int y = (int)Random.Range(room.rect.yMin + 1, room.rect.yMax);
 
 			GameObject newEnemyObject = null;
 			
-			if (Random.value < 0.75)
+			if (Random.value < 0.50)
 			{
 				newEnemyObject = (GameObject)GameObject.Instantiate(enemy1Prefab);
 			}

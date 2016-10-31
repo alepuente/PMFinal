@@ -224,11 +224,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dungeonWidth: 150
   dungeonHeight: 150
-  roomMaxSize: 40
-  roomMinSize: 30
-  roomMaxMonsters: 0
+  roomMaxSize: 30
+  roomMinSize: 20
+  roomMaxMonsters: 10
   maxRooms: 30
   floorTilePrefab: {fileID: 1000013512629992, guid: 2d74436598b81bc4592cec2383ffd976,
+    type: 2}
+  floorTilePrefab2: {fileID: 1000013512629992, guid: c7fd21e76cd29724b83b9cbed30693ec,
     type: 2}
   wallTilePrefab: {fileID: 1000014115194544, guid: d5668a10774f13a4885ba2d70c3678e0,
     type: 2}
@@ -236,7 +238,7 @@ MonoBehaviour:
     type: 2}
   enemy1Prefab: {fileID: 1000013171744164, guid: 578f858aca6ab6b49bf77fee3178a311,
     type: 2}
-  enemy2Prefab: {fileID: 1000013171744164, guid: 578f858aca6ab6b49bf77fee3178a311,
+  enemy2Prefab: {fileID: 1000011612589600, guid: 83fddedc13fa2c24e9be4dd7d1db5093,
     type: 2}
 --- !u!4 &1988310620
 Transform:
