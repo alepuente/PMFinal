@@ -16,6 +16,14 @@ public class Projectile : MonoBehaviour
     {
         CancelInvoke();
     }
+
+    void OnCollisionEnter(Collision hit)
+    {
+        /*if (hit.gameObject.tag == "Enemy")
+        {
+           _playerController._meleeAttack.Invoke(_playerController._meleeDamage);
+        }*/
+    }
 	
 	// Update is called once per frame
 	void Update () {
