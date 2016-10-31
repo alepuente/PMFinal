@@ -14,22 +14,13 @@ public class PlayerController : MonoBehaviour
     //Attack
     public bool _melee = true;
     public bool _range = false;
-    public AttackEvent _meleeAttack;
-    public AttackEvent _rangeAttack;
     public float _meleeDamage;
     public float __rangeDamage;
 
 
-    [System.Serializable]
-    public class AttackEvent : UnityEvent<float>
-    {
-    }
-
     void Start()
     {
         rgb = gameObject.GetComponent<Rigidbody>();
-        _rangeAttack = new AttackEvent();
-        _meleeAttack = new AttackEvent();
     }
 
     void Update()
