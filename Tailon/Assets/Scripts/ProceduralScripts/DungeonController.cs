@@ -16,9 +16,14 @@ public class DungeonController:MonoBehaviour
 	public GameObject floorTilePrefab2 = null;
 	public GameObject wallTilePrefab = null;
 	public GameObject playerPrefab = null;
+    public GameObject ObjetivePrefab = null;
 
 	public GameObject enemy1Prefab = null;
 	public GameObject enemy2Prefab = null;
+
+    private GameObject _objetive = null;
+    private int _objetiveX = 0;
+    private int _objetiveY = 0;
 
 	private GameObject _player = null;
 	private int _playerX = 0;
@@ -69,6 +74,7 @@ public class DungeonController:MonoBehaviour
 					translation.z = -tileHeight * y;
 					tileObject.transform.Translate (translation);
 					_tileObjects [x, y] = tileObject;
+                    tileObject.transform.parent = gameObject.transform;
 				}
 				else
 				{
@@ -89,18 +95,15 @@ public class DungeonController:MonoBehaviour
 						translation.z = -tileHeight * y;
 						tileObject.transform.Translate(translation);
 						_tileObjects[x, y] = tileObject;
+                        tileObject.transform.parent = gameObject.transform;
 					}
 		
 				}
 			}
 		}
 
-		foreach (Room room in _dungeonGenerator.ArrayRooms) 
-		{
-			placeEnemies(room);
-		}
-
 		int PlayerRoomSpawnNumer = Random.Range(0, _dungeonGenerator.ArrayRooms.Count);
+        Debug.Log(PlayerRoomSpawnNumer);
 		Room PlayerRoomSpawn = _dungeonGenerator.ArrayRooms [PlayerRoomSpawnNumer];
 		_dungeonGenerator.ArrayRooms [PlayerRoomSpawnNumer].canSpawnEnemys = false;
 		_player = (GameObject)Instantiate (playerPrefab);
@@ -110,30 +113,48 @@ public class DungeonController:MonoBehaviour
 		//currentPlayerTile.transform.localScale = new Vector3 (1, 10, 1);
 		_player.transform.position = currentPlayerTile.transform.position;
 		_player.transform.position += (Vector3.up * 5);
+
+        int ObjetiveRoomNumber;
+        do{ ObjetiveRoomNumber = Random.Range(0, _dungeonGenerator.ArrayRooms.Count); } while (ObjetiveRoomNumber != PlayerRoomSpawnNumer);
+        Debug.Log(ObjetiveRoomNumber);
+        Room ObjetiveRoom = _dungeonGenerator.ArrayRooms[ObjetiveRoomNumber];
+        _objetive = (GameObject)Instantiate(ObjetivePrefab);
+        _objetiveX = (int)Random.Range(ObjetiveRoom.rect.xMin + 1, ObjetiveRoom.rect.xMax);
+        _objetiveY = (int)Random.Range(ObjetiveRoom.rect.yMin + 1, ObjetiveRoom.rect.yMax);
+        GameObject ObjetiveTile = (GameObject)_tileObjects[_objetiveX, _objetiveY];
+        _objetive.transform.position = ObjetiveTile.transform.position;
+        _objetive.transform.position += (Vector3.up * 5);
+
+
+        foreach (Room room in _dungeonGenerator.ArrayRooms)
+        {
+            placeEnemies(room);
+        }
 	}
 
 	private void placeEnemies(Room room)
 	{
+        if (room.canSpawnEnemys) { 
 		int monsterCount = Random.Range(0, roomMaxMonsters);
-		
-		for(int i = 0; i < monsterCount; i++)
-		{
-			int x = (int)Random.Range(room.rect.xMin + 1, room.rect.xMax);
-			int y = (int)Random.Range(room.rect.yMin + 1, room.rect.yMax);
+        for (int i = 0; i < monsterCount; i++)
+        {
+            int x = (int)Random.Range(room.rect.xMin + 1, room.rect.xMax);
+            int y = (int)Random.Range(room.rect.yMin + 1, room.rect.yMax);
 
-			GameObject newEnemyObject = null;
-			
-			if (Random.value < 0.50)
-			{
-				newEnemyObject = (GameObject)GameObject.Instantiate(enemy1Prefab);
-			}
-			else
-			{
-				newEnemyObject = (GameObject)GameObject.Instantiate(enemy2Prefab);
-			}
-			
-			GameObject currentTile = (GameObject) _tileObjects[x, y];
-			newEnemyObject.transform.Translate(currentTile.transform.position);
-		}
+            GameObject newEnemyObject = null;
+
+            if (Random.value < 0.50)
+            {
+                newEnemyObject = (GameObject)GameObject.Instantiate(enemy1Prefab);
+            }
+            else
+            {
+                newEnemyObject = (GameObject)GameObject.Instantiate(enemy2Prefab);
+            }
+
+            GameObject currentTile = (GameObject)_tileObjects[x, y];
+            newEnemyObject.transform.Translate(currentTile.transform.position);
+        }
+	    }
 	}
 }	
