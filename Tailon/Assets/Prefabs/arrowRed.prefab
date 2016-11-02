@@ -22,7 +22,8 @@ GameObject:
   - 33: {fileID: 33000010608996122}
   - 23: {fileID: 23000011606668836}
   - 114: {fileID: 114000010613983398}
-  m_Layer: 0
+  - 65: {fileID: 65000011600003630}
+  m_Layer: 9
   m_Name: arrowRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,6 +79,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012069489576}
   m_Mesh: {fileID: 4300074, guid: eb22305acf540244c98048f28b603afa, type: 3}
+--- !u!65 &65000011600003630
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012069489576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00446508, y: 0.0039273123, z: 0.03700408}
+  m_Center: {x: 2.3283064e-10, y: -0.00015470193, z: -0.0032374933}
 --- !u!114 &114000010613983398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,3 +103,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1
+  _damage: 0

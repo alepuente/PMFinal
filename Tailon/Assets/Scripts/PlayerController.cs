@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public bool _melee = true;
     public bool _range = false;
     public float _meleeDamage;
-    public float __rangeDamage;
+    public float _rangeDamage;
 
 
     void Start()

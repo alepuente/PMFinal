@@ -21,6 +21,7 @@ public class RangeAttackController : MonoBehaviour {
         for (int i = 0; i < _maxAmmo; i++)
         {
             GameObject obj = (GameObject)Instantiate(basicAttack);
+            obj.GetComponent<Projectile>()._damage = _playerController._rangeDamage;
             obj.SetActive(false);
             _ammo.Add(obj);
         }

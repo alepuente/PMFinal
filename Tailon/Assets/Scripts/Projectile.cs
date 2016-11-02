@@ -4,11 +4,13 @@ using System.Collections;
 public class Projectile : MonoBehaviour
 {
     public float _speed;
+    public float _damage;
+
     void OnEnable()
     {
-        Invoke("Destroy", 2f);
+        Invoke("Disable", 2f);
     }
-    void Destroy()
+    void Disable()
     {
         gameObject.SetActive(false);
     }
@@ -19,15 +21,16 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision hit)
     {
-        /*if (hit.gameObject.tag == "Enemy")
+        if (hit.gameObject.tag == "Enemy")
         {
-           _playerController._meleeAttack.Invoke(_playerController._meleeDamage);
-        }*/
+            hit.gameObject.GetComponent<EnemyController>().health -= _damage;
+            gameObject.SetActive(false);
+        }
     }
 	
 	// Update is called once per frame
-	void Update () {
-        gameObject.transform.Translate(Vector3.forward * _speed);
+	void Update () {                   
+        gameObject.transform.Translate(Vector3.forward * _speed); 
 	}
 
     

@@ -9,7 +9,6 @@ public class MeleeAttackController : MonoBehaviour
     public float _knockback;
     public float _height;
     public float _distance;
-    private float _explosionRange = 100.0f;
     private EnemyController enemy;
     // Use this for initialization
     void Start()

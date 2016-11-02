@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/ProceduralTests.unity
+- path: Assets/Scenes/Player&Camera.unity
   isLoaded: 1
   isActive: 1
