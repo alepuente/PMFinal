@@ -560,6 +560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _range: 0.59
   _knockback: 300
+  _height: 0
   _distance: 0.76
 --- !u!114 &114000011713274380
 MonoBehaviour:
@@ -593,3 +594,5 @@ MonoBehaviour:
   _dash: 500
   _melee: 1
   _range: 0
+  _meleeDamage: 0
+  _rangeDamage: 0
