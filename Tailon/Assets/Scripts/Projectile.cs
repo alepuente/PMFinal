@@ -18,20 +18,19 @@ public class Projectile : MonoBehaviour
     {
         CancelInvoke();
     }
-
     void OnCollisionEnter(Collision hit)
     {
         if (hit.gameObject.tag == "Enemy")
         {
-            hit.gameObject.GetComponent<EnemyController>().health -= _damage;
+            hit.gameObject.GetComponent<EnemyController>()._health -= _damage;
             gameObject.SetActive(false);
         }
     }
-	
-	// Update is called once per frame
+    public void setDamage(float damage)
+    {
+        _damage = damage;
+    }
 	void Update () {                   
         gameObject.transform.Translate(Vector3.forward * _speed); 
-	}
-
-    
+	}   
 }

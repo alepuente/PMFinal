@@ -9,8 +9,8 @@ public class MeleeAttackController : MonoBehaviour
     public float _knockback;
     public float _height;
     public float _distance;
-    private EnemyController enemy;
-    // Use this for initialization
+    private EnemyController _enemy;
+
     void Start()
     {
         _playerController = GetComponentInParent<PlayerController>();
@@ -20,7 +20,6 @@ public class MeleeAttackController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(gameObject.transform.position + (gameObject.transform.forward * _distance), _range);
     }
-
     void Update()
     {
         if (_playerController._melee)
@@ -34,16 +33,16 @@ public class MeleeAttackController : MonoBehaviour
         {
             Collider[] hits;
             hits = Physics.OverlapSphere(gameObject.transform.position + (gameObject.transform.forward * _distance), _range);
-            foreach(Collider hit in hits)
+            foreach (Collider hit in hits)
+            {
                 if (hit.gameObject.tag == "Enemy")
                 {
-                    Debug.Log("Hit Enemy");
-                    enemy = hit.GetComponent<EnemyController>();
-                    enemy._nav.enabled = false;
-                    enemy.health -= _playerController._meleeDamage;
-                    hit.GetComponent<Rigidbody>().AddForce((-enemy.transform.forward * _knockback) + (enemy.transform.up * _height));
+                    _enemy = hit.GetComponent<EnemyController>();
+                    _enemy._nav.enabled = false;
+                    _enemy._health -= _playerController._meleeDamage;
+                    hit.GetComponent<Rigidbody>().AddForce((-_enemy.transform.forward * _knockback) + (_enemy.transform.up * _height));
                 }
-            
+            }
         }
     }
 }
