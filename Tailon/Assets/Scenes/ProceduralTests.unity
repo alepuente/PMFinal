@@ -227,7 +227,7 @@ MonoBehaviour:
   roomMaxSize: 30
   roomMinSize: 20
   roomMaxMonsters: 10
-  maxRooms: 30
+  maxRooms: 10
   floorTilePrefab: {fileID: 1000013512629992, guid: 2d74436598b81bc4592cec2383ffd976,
     type: 2}
   floorTilePrefab2: {fileID: 1000013512629992, guid: c7fd21e76cd29724b83b9cbed30693ec,
@@ -236,11 +236,11 @@ MonoBehaviour:
     type: 2}
   playerPrefab: {fileID: 1000011278575072, guid: 4490423e918b72240bb82c4cc2c88947,
     type: 2}
-  ObjetivePrefab: {fileID: 1000010072542198, guid: 320d0dd7685be6348b3d1d54a806b399,
+  ObjetivePrefab: {fileID: 1000013435142060, guid: bf5062aec16f57045bd9d00b42e3a143,
     type: 2}
-  enemy1Prefab: {fileID: 1000013171744164, guid: 578f858aca6ab6b49bf77fee3178a311,
+  enemy1Prefab: {fileID: 1000011612589600, guid: 83fddedc13fa2c24e9be4dd7d1db5093,
     type: 2}
-  enemy2Prefab: {fileID: 1000011612589600, guid: 83fddedc13fa2c24e9be4dd7d1db5093,
+  enemy2Prefab: {fileID: 1000013171744164, guid: 578f858aca6ab6b49bf77fee3178a311,
     type: 2}
 --- !u!4 &1988310620
 Transform:

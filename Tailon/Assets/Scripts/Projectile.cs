@@ -18,7 +18,7 @@ public class Projectile : MonoBehaviour
     {
         CancelInvoke();
     }
-    void OnCollisionEnter(Collision hit)
+    void OnTriggerEnter(Collider hit)
     {
         if (hit.gameObject.tag == "Enemy")
         {
