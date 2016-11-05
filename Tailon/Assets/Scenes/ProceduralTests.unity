@@ -90,6 +90,48 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &944535275
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000010792970482, guid: d28d94bd141787940a2d986e4cde3b3f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 24.298767
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010792970482, guid: d28d94bd141787940a2d986e4cde3b3f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 13.3118
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010792970482, guid: d28d94bd141787940a2d986e4cde3b3f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 21.770208
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010792970482, guid: d28d94bd141787940a2d986e4cde3b3f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010792970482, guid: d28d94bd141787940a2d986e4cde3b3f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010792970482, guid: d28d94bd141787940a2d986e4cde3b3f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010792970482, guid: d28d94bd141787940a2d986e4cde3b3f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010792970482, guid: d28d94bd141787940a2d986e4cde3b3f, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d28d94bd141787940a2d986e4cde3b3f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1212376100
 Prefab:
   m_ObjectHideFlags: 0
@@ -127,7 +169,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013416778908, guid: 7b6a6c13a6e5baa4ea45eec09c763337, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b6a6c13a6e5baa4ea45eec09c763337, type: 2}
@@ -195,63 +237,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1 &1988310618
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1988310620}
-  - 114: {fileID: 1988310619}
-  m_Layer: 0
-  m_Name: PMC
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1988310619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1988310618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bf1ff7fd7e5f124a8b948d7c5e2c44d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dungeonWidth: 150
-  dungeonHeight: 150
-  roomMaxSize: 30
-  roomMinSize: 20
-  roomMaxMonsters: 10
-  maxRooms: 10
-  floorTilePrefab: {fileID: 1000013512629992, guid: 2d74436598b81bc4592cec2383ffd976,
-    type: 2}
-  floorTilePrefab2: {fileID: 1000013512629992, guid: c7fd21e76cd29724b83b9cbed30693ec,
-    type: 2}
-  wallTilePrefab: {fileID: 1000014115194544, guid: d5668a10774f13a4885ba2d70c3678e0,
-    type: 2}
-  playerPrefab: {fileID: 1000011278575072, guid: 4490423e918b72240bb82c4cc2c88947,
-    type: 2}
-  ObjetivePrefab: {fileID: 1000013435142060, guid: bf5062aec16f57045bd9d00b42e3a143,
-    type: 2}
-  enemy1Prefab: {fileID: 1000011612589600, guid: 83fddedc13fa2c24e9be4dd7d1db5093,
-    type: 2}
-  enemy2Prefab: {fileID: 1000013171744164, guid: 578f858aca6ab6b49bf77fee3178a311,
-    type: 2}
---- !u!4 &1988310620
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1988310618}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.298767, y: 13.3118, z: 21.770208}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1

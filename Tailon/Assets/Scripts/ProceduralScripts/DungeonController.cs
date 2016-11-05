@@ -4,14 +4,13 @@ using System.Collections;
 
 public class DungeonController:MonoBehaviour 
 {
-	public int dungeonWidth = 80;
-	public int dungeonHeight = 50;
-
-	public int roomMaxSize = 12;
-	public int roomMinSize = 8;
-	public int roomMaxMonsters = 3;
-	
-	public int maxRooms = 10;
+	public DungeonStates dungeonController;
+	private int dungeonWidth;
+	private int dungeonHeight;
+	private int roomMaxSize;
+	private int roomMinSize;
+	private int roomMaxMonsters;	
+	private int maxRooms;
 
 	public GameObject floorTilePrefab = null;
 	public GameObject floorTilePrefab2 = null;
@@ -39,6 +38,12 @@ public class DungeonController:MonoBehaviour
 
 	void Start()
 	{
+		dungeonWidth = dungeonController.dungeonWidth;
+		dungeonHeight = dungeonController.dungeonHeight;
+		roomMaxSize = dungeonController.roomMaxSize;
+		roomMinSize = dungeonController.roomMinSize;
+		roomMaxMonsters = dungeonController.roomMaxMonsters;
+		maxRooms = dungeonController.maxRooms;
 
 		// generamos el dungeon
 		_dungeonGenerator = new AABBGenerator ();
@@ -116,7 +121,7 @@ public class DungeonController:MonoBehaviour
 		int ObjetiveRoomNumber;
 		do {
 			ObjetiveRoomNumber = Random.Range (0, _dungeonGenerator.ArrayRooms.Count);
-		} while (ObjetiveRoomNumber != PlayerRoomSpawnNumer);
+		} while (ObjetiveRoomNumber == PlayerRoomSpawnNumer);
 		Debug.Log (ObjetiveRoomNumber);
 		Room ObjetiveRoom = _dungeonGenerator.ArrayRooms [ObjetiveRoomNumber];
 		_objetive = (GameObject)Instantiate (ObjetivePrefab);
@@ -128,7 +133,6 @@ public class DungeonController:MonoBehaviour
 
 
 		Invoke ("placeEnemies", 2f);
-
 	}
 
 	private void placeEnemies(){

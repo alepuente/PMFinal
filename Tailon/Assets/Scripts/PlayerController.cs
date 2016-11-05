@@ -24,9 +24,16 @@ public class PlayerController : MonoBehaviour
     public GameObject _bow;
     public GameObject _sword;
 
+	//Stats
+	public int _level;
+
+	//Game/Dungeon Controller Reference
+	public DungeonStates _dungeonController;
+
     void Start()
     {
         _rgb = gameObject.GetComponent<Rigidbody>();
+		_level = _dungeonController.playerLevel;
     }
     void Update()
     {
