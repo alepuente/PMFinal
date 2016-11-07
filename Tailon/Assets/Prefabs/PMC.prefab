@@ -53,6 +53,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dungeonController: {fileID: 114000010413788214, guid: a62c72ca52f2d4b4aa3df413578cfa54,
     type: 2}
+  CameraPrefab: {fileID: 1000010587563862, guid: 7b6a6c13a6e5baa4ea45eec09c763337,
+    type: 2}
+  pasilloTilePrefab: {fileID: 1000010341573282, guid: 1ee3e88ce85e1604ea068ccbbd207a26,
+    type: 2}
   floorTilePrefab: {fileID: 1000013512629992, guid: 2d74436598b81bc4592cec2383ffd976,
     type: 2}
   floorTilePrefab2: {fileID: 1000013512629992, guid: c7fd21e76cd29724b83b9cbed30693ec,

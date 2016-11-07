@@ -152,7 +152,7 @@ public class AABBGenerator
 		{
 			Tile currentTile = _tileMap[x, y];
 			currentTile.blocked = false;
-			currentTile.blockSight = false;
+			currentTile.pasillo = true;
 		}
 	}
 	
@@ -162,7 +162,7 @@ public class AABBGenerator
 		{
 			Tile currentTile = _tileMap[x, y];
 			currentTile.blocked = false;
-			currentTile.blockSight = false;
+			currentTile.pasillo = true;
 		}
 	}
 }

@@ -12,6 +12,8 @@ public class DungeonController:MonoBehaviour
 	private int roomMaxMonsters;	
 	private int maxRooms;
 
+	public GameObject CameraPrefab = null;
+	public GameObject pasilloTilePrefab = null;
 	public GameObject floorTilePrefab = null;
 	public GameObject floorTilePrefab2 = null;
 	public GameObject wallTilePrefab = null;
@@ -25,6 +27,7 @@ public class DungeonController:MonoBehaviour
     private int _objetiveX = 0;
     private int _objetiveY = 0;
 
+	private GameObject _camera = null;
 	private GameObject _player = null;
 	private int _playerX = 0;
 	private int _playerY = 0;
@@ -56,7 +59,6 @@ public class DungeonController:MonoBehaviour
 
 
 		_tileObjects = new GameObject[dungeonWidth, dungeonHeight];
-
 		float tileWidth = floorTilePrefab.GetComponent<Renderer> ().bounds.size.z;
 		float tileHeight = floorTilePrefab.GetComponent<Renderer> ().bounds.size.x;
 
@@ -67,18 +69,25 @@ public class DungeonController:MonoBehaviour
 				GameObject tileObject = null;
 
 				if (currentTile.blocked != true) {
-					if (currentTile.room1)
+					if (currentTile.room1) {
 						tileObject = (GameObject)GameObject.Instantiate (floorTilePrefab);
-					else if (currentTile.room2)
+					} 
+					else if (currentTile.room2) {
 						tileObject = (GameObject)GameObject.Instantiate (floorTilePrefab2);
-					else
+					}
+					else if (currentTile.pasillo){
+						tileObject = (GameObject)GameObject.Instantiate (pasilloTilePrefab);
+					}
+					else{
 						tileObject = (GameObject)GameObject.Instantiate (floorTilePrefab);
-					
+					}
+
 					translation.x = tileWidth * x;
 					translation.z = -tileHeight * y;
 					tileObject.transform.Translate (translation);
 					_tileObjects [x, y] = tileObject;
 					tileObject.transform.parent = gameObject.transform;
+
 				} else {
 					bool wall = false;
 
@@ -117,11 +126,26 @@ public class DungeonController:MonoBehaviour
 		//currentPlayerTile.transform.localScale = new Vector3 (1, 10, 1);
 		_player.transform.position = currentPlayerTile.transform.position;
 		_player.transform.position += (Vector3.up * 5);
+		_camera = (GameObject)Instantiate (CameraPrefab);
+		_camera.transform.position = currentPlayerTile.transform.position;
+		_camera.transform.position += (Vector3.up * 10);
 
 		int ObjetiveRoomNumber;
+		/*
+		for (int i = 0; i < 10; i++) {
+			ObjetiveRoomNumber = Random.Range (0, _dungeonGenerator.ArrayRooms.Count);
+		}
 		do {
 			ObjetiveRoomNumber = Random.Range (0, _dungeonGenerator.ArrayRooms.Count);
 		} while (ObjetiveRoomNumber == PlayerRoomSpawnNumer);
+		*/
+		while (true) {
+			ObjetiveRoomNumber = Random.Range (0, _dungeonGenerator.ArrayRooms.Count);
+
+			if (ObjetiveRoomNumber != PlayerRoomSpawnNumer)
+				break;
+		}
+
 		Debug.Log (ObjetiveRoomNumber);
 		Room ObjetiveRoom = _dungeonGenerator.ArrayRooms [ObjetiveRoomNumber];
 		_objetive = (GameObject)Instantiate (ObjetivePrefab);
@@ -160,8 +184,6 @@ public class DungeonController:MonoBehaviour
 					GameObject currentTile = (GameObject)_tileObjects [x, y];
 					newEnemyObject.transform.Translate (currentTile.transform.position);
 					newEnemyObject.transform.position += (newEnemyObject.transform.up * 20);
-						//newEnemyObject.gameObject.GetComponent<NavMeshAgent> ().enabled = true;
-					//Debug.Log (newEnemyObject.transform.position);
 				}
        		 }
 	    

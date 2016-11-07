@@ -10,6 +10,7 @@ public class DungeonStates : MonoBehaviour {
 	public int roomMinSize = 15;
 	public int roomMaxMonsters = 2;
 	public int maxRooms = 5;
+
 	public int playerLevel = 0;
 
 	public void restartStates(){

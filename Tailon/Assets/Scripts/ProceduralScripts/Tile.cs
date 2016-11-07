@@ -9,4 +9,6 @@ public class Tile
 	public bool room1 = false;
 	public bool room2 = false;
 
+	public bool pasillo = false;
+
 }

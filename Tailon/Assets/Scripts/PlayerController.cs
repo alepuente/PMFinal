@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
 	//Stats
 	public int _level;
+	public int _health;
 
 	//Game/Dungeon Controller Reference
 	public DungeonStates _dungeonController;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         _rgb = gameObject.GetComponent<Rigidbody>();
 		_level = _dungeonController.playerLevel;
+		_health = 100;
     }
     void Update()
     {
