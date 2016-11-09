@@ -131,14 +131,6 @@ public class DungeonController:MonoBehaviour
 		_camera.transform.position += (Vector3.up * 10);
 
 		int ObjetiveRoomNumber;
-		/*
-		for (int i = 0; i < 10; i++) {
-			ObjetiveRoomNumber = Random.Range (0, _dungeonGenerator.ArrayRooms.Count);
-		}
-		do {
-			ObjetiveRoomNumber = Random.Range (0, _dungeonGenerator.ArrayRooms.Count);
-		} while (ObjetiveRoomNumber == PlayerRoomSpawnNumer);
-		*/
 		while (true) {
 			ObjetiveRoomNumber = Random.Range (0, _dungeonGenerator.ArrayRooms.Count);
 
