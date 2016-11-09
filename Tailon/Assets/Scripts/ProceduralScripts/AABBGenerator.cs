@@ -153,6 +153,10 @@ public class AABBGenerator
 			Tile currentTile = _tileMap[x, y];
 			currentTile.blocked = false;
 			currentTile.pasillo = true;
+
+            currentTile = _tileMap[x, y + 1];
+            currentTile.blocked = false;
+            currentTile.pasillo = true;
 		}
 	}
 	
@@ -163,6 +167,10 @@ public class AABBGenerator
 			Tile currentTile = _tileMap[x, y];
 			currentTile.blocked = false;
 			currentTile.pasillo = true;
+
+            currentTile = _tileMap[x + 1, y];
+            currentTile.blocked = false;
+            currentTile.pasillo = true;
 		}
 	}
 }
