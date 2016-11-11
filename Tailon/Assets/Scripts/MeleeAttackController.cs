@@ -40,7 +40,7 @@ public class MeleeAttackController : MonoBehaviour
                     _enemy = hit.GetComponent<EnemyController>();
                     _enemy._nav.enabled = false;
                     _enemy._health -= _playerController._meleeDamage;
-                    hit.GetComponent<Rigidbody>().AddForce((-_enemy.transform.forward * _knockback) + (_enemy.transform.up * _height));
+                    hit.GetComponent<Rigidbody>().AddForce((gameObject.transform.forward * _knockback) + (_enemy.transform.up * _height));
                 }
             }
         }

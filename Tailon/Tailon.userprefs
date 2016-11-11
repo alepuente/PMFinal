@@ -1,11 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ProceduralScripts\DungeonController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyController.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemyController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ProceduralScripts\DungeonController.cs" Line="141" Column="3" />
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ProceduralScripts\ObjetiveOnTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="60" Column="4" />
+      <File FileName="Assets\Scripts\ProceduralScripts\DungeonStates.cs" Line="29" Column="27" />
+      <File FileName="Assets\Scripts\EnemyController.cs" Line="34" Column="84" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+
+[System.Serializable]
+public class EnemyKillEvent : UnityEvent<float>
+{
+}
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,7 +32,12 @@ public class PlayerController : MonoBehaviour
 
 	//Stats
 	public int _level;
-	public int _health;
+    public float _currentLevelExp;
+    public float _nextLevelExp;
+    private float _expDifference;
+    public EnemyKillEvent _enemyKill;
+    public float _health;
+
 
 	//Game/Dungeon Controller Reference
 	public DungeonStates _dungeonController;
@@ -34,11 +45,40 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _rgb = gameObject.GetComponent<Rigidbody>();
-		_level = _dungeonController.playerLevel;
-		_health = 100;
+		_level = _dungeonController._playerLevel;
+        _currentLevelExp = _dungeonController._playerCurrentLevelExp;
+        _nextLevelExp = _dungeonController._playerNextLevelExp;
+        _enemyKill = new EnemyKillEvent();
+        _enemyKill.AddListener(enemyExp);
+        _health = _dungeonController._playerHealth;
+    }
+    void OnDestroy()
+    {
+		if (_health<=0) {
+			_dungeonController.restartStates();     
+			SceneManager.LoadScene("Lobby");
+		}
+    }
+    void enemyExp(float exp)
+    {
+        _currentLevelExp += exp;   
+    }
+    void lvlUp()
+    {
+        if (_currentLevelExp >= _nextLevelExp)
+        {
+            _expDifference = _currentLevelExp - _nextLevelExp;
+            _currentLevelExp = _expDifference;
+            _level++;
+            _nextLevelExp = _nextLevelExp * 1.20f;
+            _dungeonController._playerLevel = _level;
+            _dungeonController._playerCurrentLevelExp = _currentLevelExp;
+            _dungeonController._playerNextLevelExp = _nextLevelExp;
+        } 
     }
     void Update()
     {
+        lvlUp();
         movement();
         jump();
         dash();
@@ -91,21 +131,21 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetAxis("Horizontal") < 0)
         {
-            gameObject.transform.Translate(Vector3.left * _velocity);
+            gameObject.transform.Translate(Vector3.left * _velocity * Time.deltaTime);
         }
         if (Input.GetAxis("Horizontal") > 0)
         {
-            gameObject.transform.Translate(Vector3.right * _velocity);
+            gameObject.transform.Translate(Vector3.right * _velocity * Time.deltaTime);
         }
 
         if (Input.GetAxis("Vertical") > 0)
         {
-            gameObject.transform.Translate(Vector3.forward * _velocity);
+            gameObject.transform.Translate(Vector3.forward * _velocity * Time.deltaTime);
         }
 
         if (Input.GetAxis("Vertical") < 0)
         {
-            gameObject.transform.Translate(Vector3.back * _velocity);
+            gameObject.transform.Translate(Vector3.back * _velocity * Time.deltaTime);
         }
     }
     void movementRGB()
@@ -131,7 +171,6 @@ public class PlayerController : MonoBehaviour
     }
     void weapons()
     {
-       // _bow.transform.localRotation = (GameObject.FindGameObjectWithTag("Head").transform.rotation * Quaternion.Euler(90,0,90));
         if (_melee)
             _sword.SetActive(true);
         else

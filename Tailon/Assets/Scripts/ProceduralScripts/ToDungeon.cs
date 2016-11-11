@@ -8,7 +8,6 @@ public class ToDungeon : MonoBehaviour {
 	void OnTriggerEnter(Collider collider)
 	{
 		if (collider.gameObject.tag == "Player") {
-			_gameController.playerLevel = 0;
 			_gameController.restartStates ();
 			SceneManager.LoadScene ("ProceduralTests");
 			Debug.Log ("Go To Dungeon!");
