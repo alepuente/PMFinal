@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Tailon/Scenes/Player&Camera.unity
+- path: Assets/Tailon/Scenes/ProceduralTests.unity
   isLoaded: 1
   isActive: 1
