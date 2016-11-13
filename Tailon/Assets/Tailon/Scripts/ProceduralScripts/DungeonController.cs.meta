@@ -1,21 +1,34 @@
 fileFormatVersion: 2
 guid: 2bf1ff7fd7e5f124a8b948d7c5e2c44d
-timeCreated: 1478523011
+timeCreated: 1479008608
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - dungeonController: {fileID: 114000010413788214, guid: a62c72ca52f2d4b4aa3df413578cfa54,
       type: 2}
+  - CameraPrefab: {fileID: 1000010587563862, guid: 7b6a6c13a6e5baa4ea45eec09c763337,
+      type: 2}
+  - pasilloTilePrefab: {fileID: 1000010341573282, guid: 1ee3e88ce85e1604ea068ccbbd207a26,
+      type: 2}
   - floorTilePrefab: {fileID: 1000013512629992, guid: 2d74436598b81bc4592cec2383ffd976,
       type: 2}
   - floorTilePrefab2: {fileID: 1000013512629992, guid: c7fd21e76cd29724b83b9cbed30693ec,
       type: 2}
-  - wallTilePrefab: {instanceID: 0}
-  - playerPrefab: {instanceID: 0}
-  - ObjetivePrefab: {instanceID: 0}
-  - enemy1Prefab: {instanceID: 0}
-  - enemy2Prefab: {instanceID: 0}
+  - floorTilePrefab3: {fileID: 1000013512629992, guid: 9058752023921b04abef84753af8daed,
+      type: 2}
+  - floorTilePrefab4: {fileID: 1000013512629992, guid: 3109eda8f7ebf314a9157b5e422d4ec7,
+      type: 2}
+  - wallTilePrefab: {fileID: 1000014115194544, guid: d5668a10774f13a4885ba2d70c3678e0,
+      type: 2}
+  - playerPrefab: {fileID: 1000012287951520, guid: 5a105488a642dc745b88d4dfb381f01b,
+      type: 2}
+  - ObjetivePrefab: {fileID: 1000013435142060, guid: bf5062aec16f57045bd9d00b42e3a143,
+      type: 2}
+  - enemy1Prefab: {fileID: 1000013368536954, guid: d7a937ec750da4746bf29a77ef052aa4,
+      type: 2}
+  - enemy2Prefab: {fileID: 1000012680712674, guid: 68209912c582dfd44813f62f6d9447b5,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

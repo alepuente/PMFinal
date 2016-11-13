@@ -61,6 +61,10 @@ MonoBehaviour:
     type: 2}
   floorTilePrefab2: {fileID: 1000013512629992, guid: c7fd21e76cd29724b83b9cbed30693ec,
     type: 2}
+  floorTilePrefab3: {fileID: 1000013512629992, guid: 9058752023921b04abef84753af8daed,
+    type: 2}
+  floorTilePrefab4: {fileID: 1000013512629992, guid: 3109eda8f7ebf314a9157b5e422d4ec7,
+    type: 2}
   wallTilePrefab: {fileID: 1000014115194544, guid: d5668a10774f13a4885ba2d70c3678e0,
     type: 2}
   playerPrefab: {fileID: 1000012287951520, guid: 5a105488a642dc745b88d4dfb381f01b,

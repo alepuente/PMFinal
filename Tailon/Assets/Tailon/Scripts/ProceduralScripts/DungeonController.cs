@@ -16,6 +16,8 @@ public class DungeonController:MonoBehaviour
 	public GameObject pasilloTilePrefab = null;
 	public GameObject floorTilePrefab = null;
 	public GameObject floorTilePrefab2 = null;
+	public GameObject floorTilePrefab3 = null;
+	public GameObject floorTilePrefab4 = null;
 	public GameObject wallTilePrefab = null;
 	public GameObject playerPrefab = null;
     public GameObject ObjetivePrefab = null;
@@ -74,6 +76,12 @@ public class DungeonController:MonoBehaviour
 					} 
 					else if (currentTile.room2) {
 						tileObject = (GameObject)GameObject.Instantiate (floorTilePrefab2);
+					}
+					else if (currentTile.room3) {
+						tileObject = (GameObject)GameObject.Instantiate (floorTilePrefab3);
+					} 
+					else if (currentTile.room4) {
+						tileObject = (GameObject)GameObject.Instantiate (floorTilePrefab4);
 					}
 					else if (currentTile.pasillo){
 						tileObject = (GameObject)GameObject.Instantiate (pasilloTilePrefab);

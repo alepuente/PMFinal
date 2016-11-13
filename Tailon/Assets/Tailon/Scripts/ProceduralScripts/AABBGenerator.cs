@@ -115,7 +115,7 @@ public class AABBGenerator
 
 	private void createRoom(Rect rect)
 	{
-		int room = (int)Random.Range (1, 3);
+		int room = (int)Random.Range (1, 5);
 		
 		for(int x = (int)rect.xMin + 1; x < (int)rect.xMax; x++)
 		{
@@ -134,6 +134,16 @@ public class AABBGenerator
 				case 2:
 					{
 						currentTile.room2 = true;
+						break;
+					}
+				case 3:
+					{
+						currentTile.room3 = true;
+						break;
+					}
+				case 4:
+					{
+						currentTile.room4 = true;
 						break;
 					}
 				default:
