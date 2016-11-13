@@ -45,20 +45,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\EnemyController.cs" />
-     <Compile Include="Assets\Scripts\MeleeAttackController.cs" />
-     <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\ProceduralScripts\AABBGenerator.cs" />
-     <Compile Include="Assets\Scripts\ProceduralScripts\DonDestroyOnLoad.cs" />
-     <Compile Include="Assets\Scripts\ProceduralScripts\DungeonController.cs" />
-     <Compile Include="Assets\Scripts\ProceduralScripts\DungeonStates.cs" />
-     <Compile Include="Assets\Scripts\ProceduralScripts\ObjetiveOnTrigger.cs" />
-     <Compile Include="Assets\Scripts\ProceduralScripts\Room.cs" />
-     <Compile Include="Assets\Scripts\ProceduralScripts\Tile.cs" />
-     <Compile Include="Assets\Scripts\ProceduralScripts\ToDungeon.cs" />
-     <Compile Include="Assets\Scripts\ProceduralScripts\WallTilesPerformance.cs" />
-     <Compile Include="Assets\Scripts\Projectile.cs" />
-     <Compile Include="Assets\Scripts\RangeAttackController.cs" />
+     <Compile Include="Assets\Tailon\Scripts\EnemyController.cs" />
+     <Compile Include="Assets\Tailon\Scripts\MeleeAttackController.cs" />
+     <Compile Include="Assets\Tailon\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Tailon\Scripts\ProceduralScripts\AABBGenerator.cs" />
+     <Compile Include="Assets\Tailon\Scripts\ProceduralScripts\DonDestroyOnLoad.cs" />
+     <Compile Include="Assets\Tailon\Scripts\ProceduralScripts\DungeonController.cs" />
+     <Compile Include="Assets\Tailon\Scripts\ProceduralScripts\DungeonStates.cs" />
+     <Compile Include="Assets\Tailon\Scripts\ProceduralScripts\ObjetiveOnTrigger.cs" />
+     <Compile Include="Assets\Tailon\Scripts\ProceduralScripts\Room.cs" />
+     <Compile Include="Assets\Tailon\Scripts\ProceduralScripts\Tile.cs" />
+     <Compile Include="Assets\Tailon\Scripts\ProceduralScripts\ToDungeon.cs" />
+     <Compile Include="Assets\Tailon\Scripts\ProceduralScripts\WallTilesPerformance.cs" />
+     <Compile Include="Assets\Tailon\Scripts\Projectile.cs" />
+     <Compile Include="Assets\Tailon\Scripts\RangeAttackController.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
  <Reference Include="UnityEngine.UI">

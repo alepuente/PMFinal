@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ProceduralTests.unity
+    path: Assets/Tailon/Scenes/ProceduralTests.unity
   - enabled: 1
-    path: Assets/Scenes/Player&Camera.unity
+    path: Assets/Tailon/Scenes/Player&Camera.unity
   - enabled: 1
-    path: Assets/Scenes/Lobby.unity
+    path: Assets/Tailon/Scenes/Lobby.unity
