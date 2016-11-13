@@ -9,7 +9,6 @@ public class EnemyController : MonoBehaviour {
 	public float _maxDistance = 10.0f;
 	public float _health = 100f;
     private PlayerController _player;
-    private Rigidbody _rgb;
     public float _exp;
     public float _attackDistance;
     public float _damage;
@@ -17,6 +16,8 @@ public class EnemyController : MonoBehaviour {
     private float _attackTimer;
     public DungeonStates _gameController;
 	public float criticalHit;
+    public ParticleSystem _hitEmitter;
+    private bool _canAttack = true;
 
 	Animator anim;
 
@@ -25,9 +26,7 @@ public class EnemyController : MonoBehaviour {
 		_nav.enabled = false;
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 		_target = GameObject.FindGameObjectWithTag("Player").transform;
-        _rgb = gameObject.GetComponent<Rigidbody>();
         _damage +=_gameController._dungeonLvl * 3;
-
 		anim = GetComponent <Animator> ();
 		anim.SetBool ("IsWalking", false);
 	}
@@ -35,19 +34,29 @@ public class EnemyController : MonoBehaviour {
     {
         _player._enemyKill.Invoke(_exp);
     }
+    IEnumerator wait(float time)
+    {
+        _nav.enabled = false;
+        _canAttack = false;
+        anim.SetBool("DeadF", true);
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
+    }
 
 	void Update (){
-		
-		if (_rgb.velocity.y <  criticalHit&&gameObject.transform.position.y < criticalHit)
+		if (gameObject.transform.position.y < criticalHit)
         {
 			Debug.Log ("CriticalHit");
 			Destroy (gameObject);
         }
-		
+
+        if (_canAttack)
+        {            
         attack();
+        }
 		if (_health<=0)
 		{
-			Destroy(gameObject);
+            StartCoroutine(wait(2.0f));
 		}
 
 		if (Vector3.Distance(gameObject.transform.position,_target.position)<= _maxDistance&&_nav.enabled)
@@ -62,6 +71,7 @@ public class EnemyController : MonoBehaviour {
         if (Vector3.Distance(gameObject.transform.position, _target.position) <= _attackDistance && _nav.enabled && _attackTimer >= _attackSpeed)
         {
             _player._health -= _damage;
+            _player._hitEmitter.Play();
             _attackTimer = 0f;
             if (_player._health<= 0)
             {

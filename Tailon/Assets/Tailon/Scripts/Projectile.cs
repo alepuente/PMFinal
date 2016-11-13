@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
         if (hit.gameObject.tag == "Enemy")
         {
             hit.gameObject.GetComponent<EnemyController>()._health -= _damage;
+            hit.gameObject.GetComponent<EnemyController>()._hitEmitter.Play();
             gameObject.SetActive(false);
         }
     }

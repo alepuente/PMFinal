@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class EnemyKillEvent : UnityEvent<float>
@@ -20,8 +21,8 @@ public class PlayerController : MonoBehaviour
     public float _dashRegen;
     private float _dashTimer;
 
-	//Anim
-	Animator anim;
+    //Anim
+    Animator anim;
 
     //Attack
     public bool _melee = true;
@@ -32,41 +33,54 @@ public class PlayerController : MonoBehaviour
     //Assets
     public GameObject _bow;
     public GameObject _sword;
+    public ParticleSystem _dashEmitter;
+    public ParticleSystem _hitEmitter;
 
-	//Stats
-	public int _level;
+    //Stats
+    public int _level;
     public float _currentLevelExp;
     public float _nextLevelExp;
     private float _expDifference;
     public EnemyKillEvent _enemyKill;
     public float _health;
 
+    //GUI
+    public Image _healthBar;
+    public Image _dash1;
+    public Image _dash2;
+    public Image _dash3;
+    public Text  _lvlText;
 
-	//Game/Dungeon Controller Reference
-	public DungeonStates _dungeonController;
+    //Game/Dungeon Controller Reference
+    public DungeonStates _dungeonController;
 
     void Start()
     {
         _rgb = gameObject.GetComponent<Rigidbody>();
-		_level = _dungeonController._playerLevel;
+        _level = _dungeonController._playerLevel;
         _currentLevelExp = _dungeonController._playerCurrentLevelExp;
         _nextLevelExp = _dungeonController._playerNextLevelExp;
         _enemyKill = new EnemyKillEvent();
         _enemyKill.AddListener(enemyExp);
         _health = _dungeonController._playerHealth;
-
-		anim = GetComponent <Animator> ();
+        anim = GetComponent<Animator>();
+        _healthBar = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>()._healthBar;
+        _dash1 = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>()._dash1;
+        _dash2 = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>()._dash2;
+        _dash3 = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>()._dash3;
+        _lvlText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>()._lvlText;
     }
     void OnDestroy()
     {
-		if (_health<=0) {
-			_dungeonController.restartStates();     
-			SceneManager.LoadScene("Lobby");
-		}
+        if (_health <= 0)
+        {
+            _dungeonController.restartStates();
+            SceneManager.LoadScene("Lobby");
+        }
     }
     void enemyExp(float exp)
     {
-        _currentLevelExp += exp;   
+        _currentLevelExp += exp;
     }
     void lvlUp()
     {
@@ -79,7 +93,7 @@ public class PlayerController : MonoBehaviour
             _dungeonController._playerLevel = _level;
             _dungeonController._playerCurrentLevelExp = _currentLevelExp;
             _dungeonController._playerNextLevelExp = _nextLevelExp;
-        } 
+        }
     }
     void Update()
     {
@@ -89,27 +103,52 @@ public class PlayerController : MonoBehaviour
         dash();
         weapons();
 
-		// Animate the player.
-		float h = Input.GetAxisRaw ("Horizontal");
-		float v = Input.GetAxisRaw ("Vertical");
-		Animating (h, v);
+        // Animate the player.
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+        Animating(h, v);
+        _healthBar.fillAmount = _health / 100f;
+        _lvlText.text = "Level: " + _level;
     }
 
-	void Animating (float h, float v)
-	{
-		// Create a boolean that is true if either of the input axes is non-zero.
-		bool walking = h != 0f || v != 0f;
+    void Animating(float h, float v)
+    {
+        // Create a boolean that is true if either of the input axes is non-zero.
+        bool walking = h != 0f || v != 0f;
 
-		// Tell the animator whether or not the player is walking.
-		anim.SetBool ("IsWalking", walking);
-	}
+        // Tell the animator whether or not the player is walking.
+        anim.SetBool("IsWalking", walking);
+    }
 
     void dash()
     {
-        if (_dashNum<3)
+        switch (_dashNum)
+        {
+            case 0:
+                _dash1.enabled = false;
+                _dash2.enabled = false;
+                _dash3.enabled = false;
+                break;
+            case 1: 
+                _dash1.enabled = true;
+                _dash2.enabled = false;
+                _dash3.enabled = false;
+                break;
+            case 2: 
+                _dash1.enabled = true;
+                _dash2.enabled = true;
+                _dash3.enabled = false;
+                break;
+            case 3: 
+                _dash1.enabled = true;
+                _dash2.enabled = true;
+                _dash3.enabled = true;
+                break;
+        }
+        if (_dashNum < 3)
         {
             _dashTimer += Time.deltaTime;
-            if (_dashTimer>=_dashRegen)
+            if (_dashTimer >= _dashRegen)
             {
                 _dashNum++;
                 _dashTimer = 0.0f;
@@ -121,21 +160,25 @@ public class PlayerController : MonoBehaviour
             {
                 _rgb.AddForce(-gameObject.transform.right * _dash);
                 _dashNum--;
+                _dashEmitter.Play();
             }
             else if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxis("Horizontal") > 0)
             {
                 _rgb.AddForce(gameObject.transform.right * _dash);
                 _dashNum--;
+                _dashEmitter.Play();
             }
             else if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxis("Vertical") > 0)
             {
                 _rgb.AddForce(gameObject.transform.forward * _dash);
                 _dashNum--;
+                _dashEmitter.Play();
             }
             else if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxis("Vertical") < 0)
             {
                 _rgb.AddForce(-gameObject.transform.forward * _dash);
                 _dashNum--;
+                _dashEmitter.Play();
             }
         }
     }
@@ -219,7 +262,7 @@ public class PlayerController : MonoBehaviour
     {
         if (hit.gameObject.tag == "floor")
         {
-            _canJump = true;   
+            _canJump = true;
         }
     }
 }
