@@ -21,6 +21,16 @@ public class DungeonController:MonoBehaviour
 	public GameObject wallTilePrefab = null;
 	public GameObject playerPrefab = null;
     public GameObject ObjetivePrefab = null;
+	public GameObject Object1 = null;
+	public GameObject Object2 = null;
+	public GameObject Object3 = null;
+	public GameObject Object4 = null;
+	public GameObject Object5 = null;
+	public GameObject Object6 = null;
+	public GameObject Object7 = null;
+	public GameObject Object8 = null;
+	public GameObject Object9 = null;
+
 
 	public GameObject enemy1Prefab = null;
 	public GameObject enemy2Prefab = null;
@@ -121,6 +131,7 @@ public class DungeonController:MonoBehaviour
 			}
 		}
 
+		placeObjects ();
 		NavMeshBuilder.BuildNavMesh ();
 
 		int PlayerRoomSpawnNumer = Random.Range (0, _dungeonGenerator.ArrayRooms.Count);
@@ -171,7 +182,7 @@ public class DungeonController:MonoBehaviour
             GameObject newEnemyObject = null;
 
 			int value = Random.Range (0, 10);
-			if (value < 5)
+			if (value < 7)
             {
                 newEnemyObject = (GameObject)GameObject.Instantiate(enemy1Prefab);
             }
@@ -184,11 +195,101 @@ public class DungeonController:MonoBehaviour
 					GameObject currentTile = (GameObject)_tileObjects [x, y];
 					newEnemyObject.transform.Translate (currentTile.transform.position);
 					newEnemyObject.transform.position += (newEnemyObject.transform.up * 20);
-						newEnemyObject.transform.rotation = Quaternion.Euler (0, Random.Range (0, 360), 0);
+					newEnemyObject.transform.rotation = Quaternion.Euler (0, Random.Range (0, 360), 0);
 				}
        		 }
 	    
 			}
 		}
 	}
+
+	private void placeObjects(){
+		foreach (Room room in _dungeonGenerator.ArrayRooms) {
+			
+				int objects = Random.Range(1, 3);
+			for (int i = 0; i < objects; i++) {
+				int tmp = Random.Range (0, 2);
+				int tmp2 = Random.Range (0, 2);
+				int x;	
+				int y;
+
+				if (tmp > 0){
+					x = (int)Random.Range (room.rect.xMin, room.rect.xMax);
+					if (tmp2 > 0)
+						y = (int)room.rect.yMax - 1;
+					else
+						y = (int)room.rect.yMin + 1;
+				}else {
+					y = (int)Random.Range (room.rect.yMin, room.rect.yMax);
+					if (tmp2 > 0)
+						x = (int)room.rect.xMax - 1;
+					else
+						x = (int)room.rect.xMin + 1;
+				}
+
+					GameObject newObject = null;
+
+				int value = Random.Range (0, 10);
+				switch(value){
+				case 1:
+					{
+						newObject = (GameObject)GameObject.Instantiate(Object1);
+						break;
+					}
+				case 2:
+					{
+						newObject = (GameObject)GameObject.Instantiate(Object2);
+						break;
+					}
+				case 3:
+					{
+						newObject = (GameObject)GameObject.Instantiate(Object3);
+						break;
+					}
+				case 4:
+					{
+						newObject = (GameObject)GameObject.Instantiate(Object4);
+						break;
+					}
+				case 5:
+					{
+						newObject = (GameObject)GameObject.Instantiate(Object5);
+						break;
+					}
+				case 6:
+					{
+						newObject = (GameObject)GameObject.Instantiate(Object6);
+						break;
+					}
+				case 7:
+					{
+						newObject = (GameObject)GameObject.Instantiate(Object7);
+						break;
+					}
+				case 8:
+					{
+						newObject = (GameObject)GameObject.Instantiate(Object8);
+						break;
+					}
+				case 9:
+					{
+						newObject = (GameObject)GameObject.Instantiate(Object9);
+						break;
+					}
+				default:
+					{
+						newObject = (GameObject)GameObject.Instantiate(Object1);						
+						break;
+					}
+				}
+
+					if (!_tileMap [x, y].blocked) {
+						GameObject currentTile = (GameObject)_tileObjects [x, y];
+						newObject.transform.Translate (currentTile.transform.position);
+						newObject.transform.position -= (newObject.transform.up * 0.5f);
+						newObject.transform.rotation = Quaternion.Euler (0, Random.Range (0, 360), 0);
+					}
+				}
+			}
+		}
 }	
