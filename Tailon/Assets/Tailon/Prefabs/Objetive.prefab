@@ -23,6 +23,7 @@ GameObject:
   - 65: {fileID: 65000012479265288}
   - 23: {fileID: 23000010283356608}
   - 114: {fileID: 114000010580715932}
+  - 114: {fileID: 114000013357627104}
   m_Layer: 0
   m_Name: Objetive
   m_TagString: Untagged
@@ -104,3 +105,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameController: {fileID: 114000010413788214, guid: a62c72ca52f2d4b4aa3df413578cfa54,
     type: 2}
+--- !u!114 &114000013357627104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013435142060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0efee20328249ca4caa9e4323e2c9054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOutTexture: {fileID: 2800000, guid: 3f922c764ab15354f81d34b1f0b1f620, type: 3}
+  fadeSpeed: 0.8

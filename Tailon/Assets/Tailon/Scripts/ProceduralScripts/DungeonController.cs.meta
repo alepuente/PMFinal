@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2bf1ff7fd7e5f124a8b948d7c5e2c44d
-timeCreated: 1479008608
+timeCreated: 1479077922
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
@@ -25,6 +25,15 @@ MonoImporter:
       type: 2}
   - ObjetivePrefab: {fileID: 1000013435142060, guid: bf5062aec16f57045bd9d00b42e3a143,
       type: 2}
+  - Object1: {fileID: 1000013127337938, guid: 4d4eec18a68eac04e9237d3a734e9555, type: 2}
+  - Object2: {fileID: 1000010006404558, guid: 44d3d92d8ef2111448b0fe28755f7a40, type: 2}
+  - Object3: {fileID: 1000010265811778, guid: 21a802e00f448534f8b8f87110696dc2, type: 2}
+  - Object4: {fileID: 1000010515223792, guid: 10843d4b2e45b37469f71f7e0e0073db, type: 2}
+  - Object5: {fileID: 1000010465290096, guid: db432b1e93fff3740a1ffb101330381c, type: 2}
+  - Object6: {fileID: 1000012139661802, guid: caa5f183315b88b42b4b5bd295c16314, type: 2}
+  - Object7: {fileID: 1000012139661802, guid: caa5f183315b88b42b4b5bd295c16314, type: 2}
+  - Object8: {fileID: 1000011078503510, guid: b508ebfecc40b6e47840fbb041b459aa, type: 2}
+  - Object9: {fileID: 1000010967257944, guid: e997fc0dc719f8649a2686805ce2bafa, type: 2}
   - enemy1Prefab: {fileID: 1000013368536954, guid: d7a937ec750da4746bf29a77ef052aa4,
       type: 2}
   - enemy2Prefab: {fileID: 1000012680712674, guid: 68209912c582dfd44813f62f6d9447b5,

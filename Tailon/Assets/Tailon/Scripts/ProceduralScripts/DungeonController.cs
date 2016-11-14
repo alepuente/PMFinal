@@ -141,7 +141,6 @@ public class DungeonController:MonoBehaviour
 		_playerX = (int)Random.Range (PlayerRoomSpawn.rect.xMin + 1, PlayerRoomSpawn.rect.xMax);
 		_playerY = (int)Random.Range (PlayerRoomSpawn.rect.yMin + 1, PlayerRoomSpawn.rect.yMax);	
 		GameObject currentPlayerTile = (GameObject)_tileObjects [_playerX, _playerY];
-		//currentPlayerTile.transform.localScale = new Vector3 (1, 10, 1);
 		_player.transform.position = currentPlayerTile.transform.position;
 		_player.transform.position += (Vector3.up * 5);
 		_camera = (GameObject)Instantiate (CameraPrefab);
@@ -176,8 +175,8 @@ public class DungeonController:MonoBehaviour
 
         for (int i = 0; i < monsterCount; i++)
         {
-            int x = (int)Random.Range(room.rect.xMin + 2, room.rect.xMax - 2);
-            int y = (int)Random.Range(room.rect.yMin + 2, room.rect.yMax - 2);
+            int NewEnemyX = (int)Random.Range(room.rect.xMin + 2, room.rect.xMax - 2);
+			int NewEnemyY = (int)Random.Range(room.rect.yMin + 2, room.rect.yMax - 2);
 
             GameObject newEnemyObject = null;
 
@@ -191,9 +190,9 @@ public class DungeonController:MonoBehaviour
 				newEnemyObject = (GameObject)GameObject.Instantiate(enemy2Prefab);
             }
 					
-				if (!_tileMap [x, y].blocked) {
-					GameObject currentTile = (GameObject)_tileObjects [x, y];
-					newEnemyObject.transform.Translate (currentTile.transform.position);
+				if (!_tileMap [NewEnemyX, NewEnemyY].blocked) {
+					GameObject currentTile = (GameObject)_tileObjects [NewEnemyX, NewEnemyY];
+					newEnemyObject.transform.position = currentTile.transform.position;
 					newEnemyObject.transform.position += (newEnemyObject.transform.up * 20);
 					newEnemyObject.transform.rotation = Quaternion.Euler (0, Random.Range (0, 360), 0);
 				}
@@ -210,25 +209,24 @@ public class DungeonController:MonoBehaviour
 			for (int i = 0; i < objects; i++) {
 				int tmp = Random.Range (0, 2);
 				int tmp2 = Random.Range (0, 2);
-				int x;	
-				int y;
+				int NewObjectX;	
+				int NewObjectY;
 
 				if (tmp > 0){
-					x = (int)Random.Range (room.rect.xMin, room.rect.xMax);
+						NewObjectX = (int)Random.Range (room.rect.xMin, room.rect.xMax);
 					if (tmp2 > 0)
-						y = (int)room.rect.yMax - 1;
+						NewObjectY = (int)room.rect.yMax - 1;
 					else
-						y = (int)room.rect.yMin + 1;
+						NewObjectY = (int)room.rect.yMin + 1;
 				}else {
-					y = (int)Random.Range (room.rect.yMin, room.rect.yMax);
+						NewObjectY = (int)Random.Range (room.rect.yMin, room.rect.yMax);
 					if (tmp2 > 0)
-						x = (int)room.rect.xMax - 1;
+						NewObjectX = (int)room.rect.xMax - 1;
 					else
-						x = (int)room.rect.xMin + 1;
+						NewObjectX = (int)room.rect.xMin + 1;
 				}
 
-					GameObject newObject = null;
-
+				GameObject newObject = null;
 				int value = Random.Range (0, 10);
 				switch(value){
 				case 1:
@@ -283,9 +281,9 @@ public class DungeonController:MonoBehaviour
 					}
 				}
 
-					if (!_tileMap [x, y].blocked) {
-						GameObject currentTile = (GameObject)_tileObjects [x, y];
-						newObject.transform.Translate (currentTile.transform.position);
+					if (!_tileMap [NewObjectX, NewObjectY].blocked) {
+						GameObject currentTile = (GameObject)_tileObjects [NewObjectX, NewObjectY];
+						newObject.transform.position = currentTile.transform.position;
 						newObject.transform.position -= (newObject.transform.up * 0.5f);
 						newObject.transform.rotation = Quaternion.Euler (0, Random.Range (0, 360), 0);
 					}

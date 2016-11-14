@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Tailon/Scenes/ProceduralTests.unity
+- path: Assets/Tailon/Scenes/Lobby.unity
   isLoaded: 1
   isActive: 1

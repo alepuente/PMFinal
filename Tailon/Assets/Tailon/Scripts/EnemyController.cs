@@ -18,17 +18,19 @@ public class EnemyController : MonoBehaviour {
 	public float criticalHit;
     public ParticleSystem _hitEmitter;
     private bool _canAttack = true;
+	private Rigidbody _rgb;
 
 	Animator anim;
 
 	void Start () {
-		_nav = gameObject.GetComponent<NavMeshAgent>();
+		_nav = gameObject.GetComponent<NavMeshAgent> ();
 		_nav.enabled = false;
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-		_target = GameObject.FindGameObjectWithTag("Player").transform;
-        _damage +=_gameController._dungeonLvl * 3;
+		_player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
+		_target = GameObject.FindGameObjectWithTag ("Player").transform;
+		_damage += _gameController._dungeonLvl * 3;
 		anim = GetComponent <Animator> ();
 		anim.SetBool ("IsWalking", false);
+		_rgb = gameObject.GetComponent<Rigidbody> ();
 	}
     void OnDestroy()
     {
@@ -38,6 +40,7 @@ public class EnemyController : MonoBehaviour {
     {
         _nav.enabled = false;
         _canAttack = false;
+		_rgb.isKinematic = true;
         anim.SetBool("DeadF", true);
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
@@ -61,8 +64,10 @@ public class EnemyController : MonoBehaviour {
 
 		if (Vector3.Distance(gameObject.transform.position,_target.position)<= _maxDistance&&_nav.enabled)
 		{
+			_rgb.isKinematic = true;
 			_nav.SetDestination(_target.position);
 			anim.SetBool ("IsWalking", true);
+			_rgb.isKinematic = false;
 		}  else anim.SetBool ("IsWalking", false);
 	}
     void attack()
@@ -88,8 +93,7 @@ public class EnemyController : MonoBehaviour {
 	}
 	void OnCollisionStay(Collision hit)
 	{
-		if (hit.gameObject.tag == "floor")
-		{
+		if (hit.gameObject.tag == "floor") {
 			_nav.enabled = true;
 		}
 	}
