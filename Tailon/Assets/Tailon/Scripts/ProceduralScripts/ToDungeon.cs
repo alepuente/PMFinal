@@ -18,10 +18,8 @@ public class ToDungeon : MonoBehaviour {
 			float fadeTime = gameObject.GetComponent<FadeTransition>().BeginFade(1);
 			yield return new WaitForSeconds(fadeTime);
 			_gameController.restartStates ();
-
-			SceneManager.LoadScene ("LoadingScene");
-			StartCoroutine (LoadLevel ());
-
+			SceneManager.LoadScene ("ProceduralTests");
+			//StartCoroutine (LoadLevel ());
 			Debug.Log ("Go To Dungeon!");
 	}
 
