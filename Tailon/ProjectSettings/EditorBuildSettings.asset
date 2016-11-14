@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Tailon/Scenes/ProceduralTests.unity
   - enabled: 1
     path: Assets/Tailon/Scenes/LoadingScene.unity
+  - enabled: 1
+    path: Assets/Tailon/Scenes/Menu.unity
