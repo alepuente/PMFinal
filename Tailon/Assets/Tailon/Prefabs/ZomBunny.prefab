@@ -55,7 +55,6 @@ GameObject:
   - 4: {fileID: 4000012622521998}
   - 95: {fileID: 95000011871269150}
   - 54: {fileID: 54000010205676038}
-  - 195: {fileID: 195000012348963256}
   - 65: {fileID: 65000013561484284}
   - 114: {fileID: 114000010153626398}
   m_Layer: 0
@@ -191,9 +190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3687635913f719442b088d1be4ae14b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nav: {fileID: 195000012348963256}
-  _maxDistance: 10
+  _maxDistance: 20
   _health: 100
+  _speed: 4
   _exp: 500
   _attackDistance: 3
   _damage: 5
@@ -202,6 +201,7 @@ MonoBehaviour:
     type: 2}
   criticalHit: -10
   _hitEmitter: {fileID: 198000012890023812}
+  _isTouching: 0
 --- !u!137 &137000011145833606
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -244,33 +244,13 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.7533641, y: 0.14181736, z: 0.08473882}
     m_Extent: {x: 0.927979, y: 0.80183387, z: 0.54079175}
   m_DirtyAABB: 0
---- !u!195 &195000012348963256
-NavMeshAgent:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013368536954}
-  m_Enabled: 0
-  m_Radius: 0.3
-  m_Speed: 3
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 1
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.1
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!198 &198000012890023812
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010473450712}
-  serializedVersion: 4
+  serializedVersion: 2
   lengthInSec: 0.42
   startDelay:
     scalar: 0
@@ -308,13 +288,12 @@ ParticleSystem:
       m_RotationOrder: 4
     minMaxState: 0
   speed: 1
+  randomSeed: 2811466221
   looping: 0
   prewarm: 0
   playOnAwake: 0
   moveWithTransform: 1
-  autoRandomSeed: 1
   scalingMode: 2
-  randomSeed: -1483501075
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -2014,7 +1993,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011415138830}
-  serializedVersion: 4
+  serializedVersion: 2
   lengthInSec: 0.1
   startDelay:
     scalar: 0
@@ -2052,13 +2031,12 @@ ParticleSystem:
       m_RotationOrder: 4
     minMaxState: 0
   speed: 1
+  randomSeed: 0
   looping: 0
   prewarm: 0
   playOnAwake: 0
   moveWithTransform: 1
-  autoRandomSeed: 1
   scalingMode: 2
-  randomSeed: 0
   InitialModule:
     serializedVersion: 2
     enabled: 1

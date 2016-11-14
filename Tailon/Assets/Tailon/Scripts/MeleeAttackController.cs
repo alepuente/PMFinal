@@ -38,10 +38,11 @@ public class MeleeAttackController : MonoBehaviour
                 if (hit.gameObject.tag == "Enemy")
                 {
                     _enemy = hit.GetComponent<EnemyController>();
-                    _enemy._nav.enabled = false;
+                    _enemy._isTouching = false;
+                    //_enemy._nav.enabled = false;
                     _enemy._health -= _playerController._meleeDamage;
                     _enemy._hitEmitter.Play();
-                    hit.GetComponent<Rigidbody>().AddForce((gameObject.transform.forward * _knockback) + (_enemy.transform.up * _height));
+                    hit.GetComponent<Rigidbody>().AddForce((gameObject.transform.forward.x * _knockback), Mathf.Abs(_enemy.transform.up.y * _height), (gameObject.transform.forward.z * _knockback));
                 }
             }
         }

@@ -32,6 +32,6 @@ public class Projectile : MonoBehaviour
         _damage = damage;
     }
 	void Update () {                   
-        gameObject.transform.Translate(Vector3.forward * _speed); 
+        gameObject.transform.Translate(Vector3.forward * _speed*Time.deltaTime); 
 	}   
 }

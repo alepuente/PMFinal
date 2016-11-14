@@ -22,7 +22,6 @@ GameObject:
   - 95: {fileID: 95000010212139084}
   - 65: {fileID: 65000013632726840}
   - 114: {fileID: 114000013778580334}
-  - 195: {fileID: 195000013299641190}
   - 54: {fileID: 54000012384336140}
   m_Layer: 0
   m_Name: Hellephant
@@ -160,9 +159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3687635913f719442b088d1be4ae14b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nav: {fileID: 195000013299641190}
-  _maxDistance: 10
+  _maxDistance: 20
   _health: 100
+  _speed: 2
   _exp: 1000
   _attackDistance: 3
   _damage: 10
@@ -171,6 +170,7 @@ MonoBehaviour:
     type: 2}
   criticalHit: -10
   _hitEmitter: {fileID: 198000012073589804}
+  _isTouching: 0
 --- !u!137 &137000013689720554
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -213,33 +213,13 @@ SkinnedMeshRenderer:
     m_Center: {x: -1.0697424, y: -0.0020528436, z: 0.34928906}
     m_Extent: {x: 1.1027746, y: 1.4641979, z: 1.4643224}
   m_DirtyAABB: 0
---- !u!195 &195000013299641190
-NavMeshAgent:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012680712674}
-  m_Enabled: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!198 &198000012073589804
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014238111460}
-  serializedVersion: 4
+  serializedVersion: 2
   lengthInSec: 0.42
   startDelay:
     scalar: 0
@@ -277,13 +257,12 @@ ParticleSystem:
       m_RotationOrder: 4
     minMaxState: 0
   speed: 1
+  randomSeed: 2762504471
   looping: 0
   prewarm: 0
   playOnAwake: 0
   moveWithTransform: 1
-  autoRandomSeed: 1
   scalingMode: 2
-  randomSeed: -1532462825
   InitialModule:
     serializedVersion: 2
     enabled: 1

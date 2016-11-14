@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 using System.Collections;
 
 public class DungeonController:MonoBehaviour 
@@ -132,7 +132,7 @@ public class DungeonController:MonoBehaviour
 		}
 
 		placeObjects ();
-		NavMeshBuilder.BuildNavMesh ();
+		//NavMeshBuilder.BuildNavMesh ();
 
 		int PlayerRoomSpawnNumer = Random.Range (0, _dungeonGenerator.ArrayRooms.Count);
 		Room PlayerRoomSpawn = _dungeonGenerator.ArrayRooms [PlayerRoomSpawnNumer];

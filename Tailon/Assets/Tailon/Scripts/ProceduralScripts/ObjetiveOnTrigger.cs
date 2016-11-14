@@ -8,15 +8,19 @@ public class ObjetiveOnTrigger : MonoBehaviour {
 		if (collider.gameObject.tag == "Player") {
 			Debug.Log ("On TriggerEnter Player");
 
+            if (_gameController._dungeonLvl == 8)
+            {
+                SceneManager.LoadScene("GameOver");
+                _gameController.restartStates();
+            }
 
+            _gameController._dungeonLvl++;
 			_gameController.dungeonWidth += _gameController._dungeonLvl + 10;
 			_gameController.dungeonHeight += _gameController._dungeonLvl + 10;
 			_gameController.roomMaxSize += 1;
 			_gameController.roomMinSize = 10;
 			_gameController.roomMaxMonsters += 2;
 			_gameController.maxRooms += 1;
-			_gameController._playerLevel += 2;
-
 			StartCoroutine (ChangeScene ());
 
 		}
