@@ -52,15 +52,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fc4a487ac8183d4aa87da122ae4816c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dungeonWidth: 85
-  dungeonHeight: 85
-  roomMaxSize: 15
+  dungeonWidth: 52
+  dungeonHeight: 52
+  roomMaxSize: 12
   roomMinSize: 10
-  roomMaxMonsters: 12
-  maxRooms: 8
-  _playerLevel: 23
-  _playerCurrentLevelExp: 419.48584
-  _playerNextLevelExp: 8916.1045
+  roomMaxMonsters: 6
+  maxRooms: 5
+  _playerLevel: 1
+  _playerCurrentLevelExp: 0
+  _playerNextLevelExp: 1200
   _playerHealth: 100
   _dungeonLvl: 1
 --- !u!114 &114000014149412518

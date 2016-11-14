@@ -48,6 +48,7 @@
      <Compile Include="Assets\Tailon\Scripts\Canvas.cs" />
      <Compile Include="Assets\Tailon\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Tailon\Scripts\MeleeAttackController.cs" />
+     <Compile Include="Assets\Tailon\Scripts\Pause.cs" />
      <Compile Include="Assets\Tailon\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Tailon\Scripts\ProceduralScripts\AABBGenerator.cs" />
      <Compile Include="Assets\Tailon\Scripts\ProceduralScripts\DonDestroyOnLoad.cs" />

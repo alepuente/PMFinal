@@ -284,7 +284,7 @@ public class DungeonController:MonoBehaviour
 					if (!_tileMap [NewObjectX, NewObjectY].blocked) {
 						GameObject currentTile = (GameObject)_tileObjects [NewObjectX, NewObjectY];
 						newObject.transform.position = currentTile.transform.position;
-						newObject.transform.position -= (newObject.transform.up * 0.5f);
+						newObject.transform.position += (newObject.transform.up * 0.5f);
 						newObject.transform.rotation = Quaternion.Euler (0, Random.Range (0, 360), 0);
 					}
 				}
