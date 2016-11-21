@@ -63,6 +63,10 @@
      <Compile Include="Assets\Tailon\Scripts\ProceduralScripts\WallTilesPerformance.cs" />
      <Compile Include="Assets\Tailon\Scripts\Projectile.cs" />
      <Compile Include="Assets\Tailon\Scripts\RangeAttackController.cs" />
+     <Compile Include="Assets\Tailon\Scripts\States\MoveTowardsPlayer.cs" />
+     <Compile Include="Assets\Tailon\Scripts\States\State.cs" />
+     <Compile Include="Assets\Tailon\Scripts\States\StateMachine.cs" />
+     <Compile Include="Assets\Tailon\Scripts\States\WanderAround.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
  <Reference Include="UnityEngine.UI">

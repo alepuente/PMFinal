@@ -156,25 +156,25 @@ public class PlayerController : MonoBehaviour
         }
         if (_dashNum > 0)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxis("Horizontal") < 0)
+			if (Input.GetButtonDown("Dash") && Input.GetAxis("Horizontal") < 0)
             {
                 _rgb.AddForce(-gameObject.transform.right * _dash);
                 _dashNum--;
                 _dashEmitter.Play();
             }
-            else if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxis("Horizontal") > 0)
+			else if (Input.GetButtonDown("Dash") && Input.GetAxis("Horizontal") > 0)
             {
                 _rgb.AddForce(gameObject.transform.right * _dash);
                 _dashNum--;
                 _dashEmitter.Play();
             }
-            else if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxis("Vertical") > 0)
+			else if (Input.GetButtonDown("Dash") && Input.GetAxis("Vertical") > 0)
             {
                 _rgb.AddForce(gameObject.transform.forward * _dash);
                 _dashNum--;
                 _dashEmitter.Play();
             }
-            else if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxis("Vertical") < 0)
+			else if (Input.GetButtonDown("Dash") && Input.GetAxis("Vertical") < 0)
             {
                 _rgb.AddForce(-gameObject.transform.forward * _dash);
                 _dashNum--;
@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour
     }
     void jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _canJump)
+		if (Input.GetButtonDown("Jump") && _canJump)
         {
             _rgb.AddForce(0, _jump, 0);
             _canJump = false;
