@@ -11,9 +11,18 @@ public class WanderAround : State<EnemyController>
 
 	public override void CheckForNewState ()
 	{
-		if (Vector3.Distance(ownerObject.gameObject.transform.position,ownerObject._target.position)<= ownerObject._maxDistance&&ownerObject._isTouching){
-			ownerStateMachine.CurrentState = new MoveTowardsPlayer();
-		}
+        if (ownerObject._health < 0)
+        {
+            ownerStateMachine.CurrentState = new Death();
+        }     
+        if (Vector3.Distance(ownerObject.gameObject.transform.position, ownerObject._target.position) <= ownerObject._maxDistance && ownerObject._isTouching)
+        {
+            ownerStateMachine.CurrentState = new MoveTowardsPlayer();
+        }
+        if (Vector3.Distance(ownerObject.gameObject.transform.position, ownerObject._target.position) >= ownerObject._maxDistance && !ownerObject._isTouching)
+        {
+            ownerStateMachine.CurrentState = new Iddle();
+        }
 	}
 	
 	public override void Update ()
@@ -27,9 +36,9 @@ public class WanderAround : State<EnemyController>
 		base.OnEnable (owner, newStateMachine);
 
 		_heading = Random.Range(0, 360);
-		ownerObject.transform.eulerAngles = new Vector3(0, _heading, 0);
-		
+		ownerObject.transform.eulerAngles = new Vector3(0, _heading, 0);		
 		ownerObject.StartCoroutine(NewHeading());
+        ownerObject.anim.SetBool("IsWalking", true);
 	}
 
 	IEnumerator NewHeading ()

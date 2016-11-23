@@ -4,7 +4,7 @@ using System.Collections;
 public class StateMachine<T> 
 {
 	T ownerObject;
-	private State<T> currentState;
+	public State<T> currentState;
 	public State<T> CurrentState
 	{
 		get 

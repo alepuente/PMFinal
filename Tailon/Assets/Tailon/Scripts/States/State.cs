@@ -3,8 +3,8 @@ using System.Collections;
 
 public abstract class State<T> 
 {
-	protected T ownerObject;
-	protected StateMachine<T> ownerStateMachine;
+    public T ownerObject;
+    public StateMachine<T> ownerStateMachine;
 
 	public abstract void CheckForNewState();
 	public abstract void Update();

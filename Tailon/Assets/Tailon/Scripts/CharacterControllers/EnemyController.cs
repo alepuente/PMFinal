@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour {
 	public Transform _target;
 	public float _maxDistance = 10.0f;
 	public float _health = 100f;
-    private PlayerController _player;
+    public PlayerController _player;
     public float _speed;
     public float _exp;
     public float _attackDistance;
@@ -16,10 +16,10 @@ public class EnemyController : MonoBehaviour {
     public DungeonStates _gameController;
 	public float criticalHit;
     public ParticleSystem _hitEmitter;
-    private bool _canAttack = true;
+    public bool _canAttack = true;
 	public Rigidbody _rgb;
     public bool _isTouching;
-	private StateMachine<EnemyController> _stateMachine;
+	public StateMachine<EnemyController> _stateMachine;
 	public Animator anim;
 
 	void Start () {
@@ -31,19 +31,6 @@ public class EnemyController : MonoBehaviour {
 		_rgb = gameObject.GetComponent<Rigidbody> ();
 		_stateMachine = new StateMachine<EnemyController> (new WanderAround (), this);
 	}
-    void OnDestroy()
-    {
-        _player._enemyKill.Invoke(_exp);
-    }
-    IEnumerator wait(float time)
-    {
-        _isTouching = false;
-        _canAttack = false;
-		_rgb.isKinematic = true;
-        anim.SetBool("DeadF", true);
-        yield return new WaitForSeconds(time);
-        Destroy(gameObject);
-    }
 
 	void Update (){
 		if (gameObject.transform.position.y < criticalHit)
@@ -51,26 +38,11 @@ public class EnemyController : MonoBehaviour {
 			Debug.Log ("CriticalHit");
 			Destroy (gameObject);
         }
-
         if (_canAttack)
         {            
         attack();
         }
-		if (_health<=0)
-		{
-            StartCoroutine(wait(2.0f));
-		}
-
 		_stateMachine.Update ();
-		/*if (Vector3.Distance(gameObject.transform.position,_target.position)<= _maxDistance&&_isTouching)
-		{
-            _rgb.isKinematic = true;
-            _rgb.isKinematic = false;
-            anim.SetBool("IsWalking", true);
-            gameObject.transform.Translate(Vector3.forward * _speed * Time.deltaTime);
-            gameObject.transform.LookAt(_target);
-		}  
-        else anim.SetBool ("IsWalking", false);*/
 	}
     void attack()
     {
@@ -97,7 +69,24 @@ public class EnemyController : MonoBehaviour {
 	{
 		if (hit.gameObject.tag == "floor") {
             _isTouching = true; 
-			// _nav.enabled = true;
 		}
 	}
+
+    public void destroy()
+    {
+        StartCoroutine(wait(2.0f));
+    }
+
+    IEnumerator wait(float time)
+    {
+        _isTouching = false;
+        _canAttack = false;
+        _rgb.isKinematic = true;
+        _rgb.isKinematic = false;
+        anim.SetBool("DeadF", true);
+        yield return new WaitForSeconds(time);
+        _player._enemyKill.Invoke(_exp);
+        Destroy(gameObject);
+    }
+
 }

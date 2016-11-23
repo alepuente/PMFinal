@@ -39,7 +39,7 @@ public class MeleeAttackController : MonoBehaviour
                 {
                     _enemy = hit.GetComponent<EnemyController>();
                     _enemy._isTouching = false;
-                    //_enemy._nav.enabled = false;
+                    _enemy._stateMachine.CurrentState = new Iddle();
                     _enemy._health -= _playerController._meleeDamage;
                     _enemy._hitEmitter.Play();
                     hit.GetComponent<Rigidbody>().AddForce((gameObject.transform.forward.x * _knockback), Mathf.Abs(_enemy.transform.up.y * _height), (gameObject.transform.forward.z * _knockback));
