@@ -1,0 +1,16 @@
+Event	ID	Name			Wwise Object Path	Notes
+	6899006	objective			\Default Work Unit\objective	
+	1256202815	play			\Default Work Unit\play	
+	1651515387	startButton			\Default Work Unit\startButton	
+	1942692385	dash			\Default Work Unit\dash	
+	2087432578	meleeHit			\Default Work Unit\meleeHit	
+	2124419314	hitFloor			\Default Work Unit\hitFloor	
+	2433235219	perder			\Default Work Unit\perder	
+	2658298240	inicio			\Default Work Unit\inicio	
+	3003849848	stepPlayer			\Default Work Unit\stepPlayer	
+	3038207054	shoot			\Default Work Unit\shoot	
+	3833651337	jump			\Default Work Unit\jump	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	755667334	40_smith_wesson_single-mike-koenig	C:\Users\826\Desktop\TailonSounds\.cache\Windows\SFX\40_smith_wesson_single-mike-koenig_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\40_smith_wesson_single-mike-koenig		812764
+

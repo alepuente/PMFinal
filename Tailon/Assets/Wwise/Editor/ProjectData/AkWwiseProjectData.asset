@@ -1,0 +1,180 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e333b9ac4e085bc4ea542cc8d4f92390, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  CurrentPluginConfig: Profile
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{50293414-3908-40E5-B4F8-CDB4398BEC08}'
+    m_lastTimePsrt1: -1978197051
+    m_lastTimePart2: -1999367257
+    List:
+    - Name: dash
+      Path: Default Work Unit\dash
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: dash
+        ObjectType: 3
+      ID: 1942692385
+      Guid: fa5b386e9de77e4fab45859c10a9896a
+      maxAttenuation: 0
+    - Name: hitFloor
+      Path: Default Work Unit\hitFloor
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: hitFloor
+        ObjectType: 3
+      ID: 2124419314
+      Guid: 23ff3e9f72e4444babdf040114e10365
+      maxAttenuation: 0
+    - Name: inicio
+      Path: Default Work Unit\inicio
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: inicio
+        ObjectType: 3
+      ID: -1636669056
+      Guid: 3e0705a0dd120741a32bacf0d7d2bed2
+      maxAttenuation: 0
+    - Name: jump
+      Path: Default Work Unit\jump
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: jump
+        ObjectType: 3
+      ID: -461315959
+      Guid: ffcf15160da33140918faa4ce71f3efe
+      maxAttenuation: 0
+    - Name: meleeHit
+      Path: Default Work Unit\meleeHit
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: meleeHit
+        ObjectType: 3
+      ID: 2087432578
+      Guid: a3a4f8239dedaf45ada1283a6e6aee2b
+      maxAttenuation: 0
+    - Name: objective
+      Path: Default Work Unit\objective
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: objective
+        ObjectType: 3
+      ID: 6899006
+      Guid: 494cb3cb2248cb4b8915743808b6f676
+      maxAttenuation: 0
+    - Name: perder
+      Path: Default Work Unit\perder
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: perder
+        ObjectType: 3
+      ID: -1861732077
+      Guid: a8de11d06998534e8e12a4b2ef2170ba
+      maxAttenuation: 0
+    - Name: play
+      Path: Default Work Unit\play
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: play
+        ObjectType: 3
+      ID: 1256202815
+      Guid: 2c039f466632ce4eaa33b1ef4d4f8c86
+      maxAttenuation: 0
+    - Name: shoot
+      Path: Default Work Unit\shoot
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: shoot
+        ObjectType: 3
+      ID: -1256760242
+      Guid: fd0e0a15c792cc4bbeaa7a3176592116
+      maxAttenuation: 0
+    - Name: startButton
+      Path: Default Work Unit\startButton
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: startButton
+        ObjectType: 3
+      ID: 1651515387
+      Guid: cd6fd94ee2269e49898e7dc4d6caf091
+      maxAttenuation: 0
+    - Name: stepPlayer
+      Path: Default Work Unit\stepPlayer
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: stepPlayer
+        ObjectType: 3
+      ID: -1291117448
+      Guid: 8fd229707fa2904083ff578298b13b9b
+      maxAttenuation: 0
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{6ACF9DF1-5D81-4141-8038-ADEB6CD6F4C7}'
+    m_lastTimePsrt1: -1116737951
+    m_lastTimePart2: -1999367263
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{BEAF8A5B-1E96-48D0-9B28-561C3F087BE4}'
+    m_lastTimePsrt1: -1116777953
+    m_lastTimePart2: -1999367263
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{7541C3FF-EACC-4433-A54C-8DA85EE2312A}'
+    m_lastTimePsrt1: -1116807955
+    m_lastTimePart2: -1999367263
+    List: []
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{32C11D81-8EA6-4BE1-843C-4AE96D16D8CF}'
+    m_lastTimePsrt1: -717876603
+    m_lastTimePart2: -1999367256
+    List:
+    - Name: New_SoundBank
+      Path: Default Work Unit\New_SoundBank
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: New_SoundBank
+        ObjectType: 7
+      ID: -222937841
+      Guid: 4f742eeb55b1514fab1147befcb5597c
+  ExpandedItems:
+  - /TailonSounds
+  m_lastPopulateTimePsrt1: 0
+  m_lastPopulateTimePart2: 0
+  autoPopulateEnabled: 1
+  basePath: Audio\GeneratedSoundBanks
+  language: English(US)
+  defaultPoolSize: 4096
+  lowerPoolSize: 2048
+  streamingPoolSize: 1024
+  preparePoolSize: 0
+  memoryCutoffThreshold: 0.95
