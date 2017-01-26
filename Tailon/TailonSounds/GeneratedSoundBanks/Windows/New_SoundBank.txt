@@ -12,5 +12,5 @@ Event	ID	Name			Wwise Object Path	Notes
 	3833651337	jump			\Default Work Unit\jump	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	755667334	40_smith_wesson_single-mike-koenig	C:\Users\826\Desktop\TailonSounds\.cache\Windows\SFX\40_smith_wesson_single-mike-koenig_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\40_smith_wesson_single-mike-koenig		812764
+	755667334	40_smith_wesson_single-mike-koenig	C:\Users\ale3p\Desktop\PMFinal\Tailon\TailonSounds\.cache\Windows\SFX\40_smith_wesson_single-mike-koenig_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\40_smith_wesson_single-mike-koenig		812764
 

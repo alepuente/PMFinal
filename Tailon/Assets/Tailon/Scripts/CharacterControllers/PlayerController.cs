@@ -64,11 +64,11 @@ public class PlayerController : MonoBehaviour
         _enemyKill.AddListener(enemyExp);
         _health = _dungeonController._playerHealth;
         anim = GetComponent<Animator>();
-        _healthBar = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>()._healthBar;
-        _dash1 = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>()._dash1;
-        _dash2 = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>()._dash2;
-        _dash3 = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>()._dash3;
-        _lvlText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>()._lvlText;
+        _healthBar = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._healthBar;
+        _dash1 = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._dash1;
+        _dash2 = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._dash2;
+        _dash3 = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._dash3;
+        _lvlText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._lvlText;
     }
     void OnDestroy()
     {

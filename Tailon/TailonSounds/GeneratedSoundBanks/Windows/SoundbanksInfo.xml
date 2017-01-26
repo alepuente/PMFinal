@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="10" SoundbankVersion="113">
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="120">
 	<RootPaths>
-		<ProjectRoot>C:\Users\826\Desktop\TailonSounds\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\826\Desktop\TailonSounds\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\826\Desktop\TailonSounds\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\ale3p\Desktop\PMFinal\Tailon\TailonSounds\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\ale3p\Desktop\PMFinal\Tailon\TailonSounds\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\ale3p\Desktop\PMFinal\Tailon\TailonSounds\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\826\Desktop\TailonSounds\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\ale3p\Desktop\PMFinal\Tailon\TailonSounds\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
 		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
 		<SoundBank Id="4072029455" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\New_SoundBank</ObjectPath>
 			<ShortName>New_SoundBank</ShortName>
 			<Path>New_SoundBank.bnk</Path>
 			<IncludedEvents>
-				<Event Id="1942692385" Name="dash" MaxAttenuation="0.000000"/>
-				<Event Id="2124419314" Name="hitFloor" MaxAttenuation="0.000000"/>
-				<Event Id="2658298240" Name="inicio" MaxAttenuation="0.000000"/>
-				<Event Id="3833651337" Name="jump" MaxAttenuation="0.000000"/>
-				<Event Id="2087432578" Name="meleeHit" MaxAttenuation="0.000000"/>
-				<Event Id="6899006" Name="objective" MaxAttenuation="0.000000"/>
-				<Event Id="2433235219" Name="perder" MaxAttenuation="0.000000"/>
-				<Event Id="1256202815" Name="play" MaxAttenuation="0.000000"/>
-				<Event Id="3038207054" Name="shoot"/>
-				<Event Id="1651515387" Name="startButton" MaxAttenuation="0.000000"/>
-				<Event Id="3003849848" Name="stepPlayer" MaxAttenuation="0.000000"/>
+				<Event Id="1942692385" Name="dash" ObjectPath="\Events\Default Work Unit\dash" MaxAttenuation="0.000000"/>
+				<Event Id="2124419314" Name="hitFloor" ObjectPath="\Events\Default Work Unit\hitFloor" MaxAttenuation="0.000000"/>
+				<Event Id="2658298240" Name="inicio" ObjectPath="\Events\Default Work Unit\inicio" MaxAttenuation="0.000000"/>
+				<Event Id="3833651337" Name="jump" ObjectPath="\Events\Default Work Unit\jump" MaxAttenuation="0.000000"/>
+				<Event Id="2087432578" Name="meleeHit" ObjectPath="\Events\Default Work Unit\meleeHit" MaxAttenuation="0.000000"/>
+				<Event Id="6899006" Name="objective" ObjectPath="\Events\Default Work Unit\objective" MaxAttenuation="0.000000"/>
+				<Event Id="2433235219" Name="perder" ObjectPath="\Events\Default Work Unit\perder" MaxAttenuation="0.000000"/>
+				<Event Id="1256202815" Name="play" ObjectPath="\Events\Default Work Unit\play" MaxAttenuation="0.000000"/>
+				<Event Id="3038207054" Name="shoot" ObjectPath="\Events\Default Work Unit\shoot"/>
+				<Event Id="1651515387" Name="startButton" ObjectPath="\Events\Default Work Unit\startButton" MaxAttenuation="0.000000"/>
+				<Event Id="3003849848" Name="stepPlayer" ObjectPath="\Events\Default Work Unit\stepPlayer" MaxAttenuation="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="755667334" Language="SFX">
