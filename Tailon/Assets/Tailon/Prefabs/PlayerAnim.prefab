@@ -65,13 +65,14 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1000011053970258
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011720637396}
   - 137: {fileID: 137000013483237766}
+  - 95: {fileID: 95000010126766390}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -191,7 +192,6 @@ Transform:
   - {fileID: 4000011692128358}
   - {fileID: 4000010021394170}
   - {fileID: 4000012934197732}
-  - {fileID: 4000011720637396}
   - {fileID: 4000013112686986}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -214,13 +214,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011053970258}
-  m_LocalRotation: {x: -0.24060132, y: 0.03737087, z: 0.7061186, w: 0.6649143}
-  m_LocalPosition: {x: 0.417, y: 0.31, z: 0.03}
-  m_LocalScale: {x: 33.107082, y: 33.107082, z: 33.107082}
-  m_LocalEulerAnglesHint: {x: -158.153, y: 162.08499, z: -83.198}
+  m_LocalRotation: {x: -0.7742546, y: -0.02794611, z: 0.63132733, w: -0.034272946}
+  m_LocalPosition: {x: -0.32, y: 0, z: -0.02}
+  m_LocalScale: {x: 39.889732, y: 42.12632, z: 62.895958}
+  m_LocalEulerAnglesHint: {x: -185.02701, y: 78.66699, z: -0.000015258789}
   m_Children: []
-  m_Father: {fileID: 4000011202860840}
-  m_RootOrder: 4
+  m_Father: {fileID: 4000012934197732}
+  m_RootOrder: 0
 --- !u!4 &4000012934197732
 Transform:
   m_ObjectHideFlags: 1
@@ -231,7 +231,8 @@ Transform:
   m_LocalPosition: {x: 0.42256805, y: 0.2720632, z: -0.17690624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4000011720637396}
   m_Father: {fileID: 4000011202860840}
   m_RootOrder: 3
 --- !u!4 &4000013112686986
@@ -246,7 +247,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000011202860840}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!4 &4000013937873620
 Transform:
   m_ObjectHideFlags: 1
@@ -397,6 +398,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95000010126766390
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011053970258}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9cef4aff1f805734c951de7941649c43, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95000014026662660
 Animator:
   serializedVersion: 3
@@ -460,9 +478,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _range: 1.45
-  _knockback: 200
-  _height: 300
+  _knockback: 150
+  _height: 200
   _distance: 1.21
+  stamine: 100
+  staminenNeeded: 30
 --- !u!114 &114000011679082600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -661,7 +681,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014085729710}
-  serializedVersion: 2
+  serializedVersion: 4
   lengthInSec: 0.42
   startDelay:
     scalar: 0
@@ -699,12 +719,13 @@ ParticleSystem:
       m_RotationOrder: 4
     minMaxState: 0
   speed: 1
-  randomSeed: 615544366
   looping: 0
   prewarm: 0
   playOnAwake: 0
   moveWithTransform: 1
+  autoRandomSeed: 0
   scalingMode: 2
+  randomSeed: 615544384
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -2404,7 +2425,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011391721034}
-  serializedVersion: 2
+  serializedVersion: 4
   lengthInSec: 0.42
   startDelay:
     scalar: 0
@@ -2442,12 +2463,13 @@ ParticleSystem:
       m_RotationOrder: 4
     minMaxState: 0
   speed: 1
-  randomSeed: 362472276
   looping: 0
   prewarm: 0
   playOnAwake: 0
   moveWithTransform: 0
+  autoRandomSeed: 0
   scalingMode: 2
+  randomSeed: 362472288
   InitialModule:
     serializedVersion: 2
     enabled: 1

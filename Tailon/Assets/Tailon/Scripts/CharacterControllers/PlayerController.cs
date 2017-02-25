@@ -234,16 +234,6 @@ public class PlayerController : MonoBehaviour
     }
     void weapons()
     {
-        if (_melee)
-            _sword.SetActive(true);
-        else
-            _sword.SetActive(false);
-
-        if (_range)
-            _bow.SetActive(true);
-        else
-            _bow.SetActive(false);
-
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (_melee)
@@ -257,7 +247,20 @@ public class PlayerController : MonoBehaviour
                 _range = false;
             }
         }
+
+
+        if (_melee)
+            _sword.GetComponent<SkinnedMeshRenderer>().enabled = true;
+        else
+            _sword.GetComponent<SkinnedMeshRenderer>().enabled = false;
+
+        if (_range)
+            _bow.GetComponent<SkinnedMeshRenderer>().enabled = true;
+        else
+            _bow.GetComponent<SkinnedMeshRenderer>().enabled = false;    
     }
+
+
     void OnCollisionEnter(Collision hit)
     {
         if (hit.gameObject.tag == "floor")
@@ -265,4 +268,5 @@ public class PlayerController : MonoBehaviour
             _canJump = true;
         }
     }
+
 }

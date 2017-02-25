@@ -1,19 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class MeleeAttackController : MonoBehaviour
 {
 
     PlayerController _playerController;
+    private EnemyController _enemy;
     public float _range;
     public float _knockback;
     public float _height;
     public float _distance;
-    private EnemyController _enemy;
+
+    private GameObject _sword;
+    private Animator _swordAnim;
+    
+    private Image _stamineBar;
+    public float stamine = 100;
+    public float staminenNeeded = 30;
 
     void Start()
     {
         _playerController = GetComponentInParent<PlayerController>();
+        _sword = GameObject.Find("Sword");
+        _swordAnim = _sword.GetComponent<Animator>();
+
+        _stamineBar = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._stamineBar;
     }
     void OnDrawGizmosSelected()
     {
@@ -26,13 +38,20 @@ public class MeleeAttackController : MonoBehaviour
         {
             attack();
         }
+
+        if (stamine < 100) stamine += 10f * Time.deltaTime;
+        _stamineBar.fillAmount = stamine / 100f;
+
+        if (Input.GetKeyDown(KeyCode.C)) stamine = 0;
     }
     void attack()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && stamine > staminenNeeded && !_swordAnim.GetCurrentAnimatorStateInfo(0).IsName("SwordAttack"))
         {
+            stamine -= staminenNeeded;
             Collider[] hits;
             hits = Physics.OverlapSphere(gameObject.transform.position + (gameObject.transform.forward * _distance), _range);
+            _swordAnim.SetTrigger("SwordAttack");
             foreach (Collider hit in hits)
             {
                 if (hit.gameObject.tag == "Enemy")
