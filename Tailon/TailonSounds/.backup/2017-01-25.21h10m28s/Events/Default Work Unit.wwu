@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{50293414-3908-40E5-B4F8-CDB4398BEC08}" SchemaVersion="70">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{50293414-3908-40E5-B4F8-CDB4398BEC08}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="inicio" ID="{A005073E-12DD-4107-A32B-ACF0D7D2BED2}"/>
+				<Event Name="shoot" ID="{150A0EFD-92C7-4BCC-BEAA-7A3176592116}">
+					<ChildrenList>
+						<Action Name="Play" ID="{044C2213-982D-453E-A315-5242481B1C1F}" ShortID="446330089" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{EE76FEFB-7D11-4CBD-A53A-5968A4A03C60}" Global="false">
+									<ObjectRef Name="40_smith_wesson_single-mike-koenig" ID="{F8520AE4-2DB6-40E7-A93E-2536CE3637ED}" WorkUnitID="{62411CCF-14CE-4C92-AA7B-1BB4AB5A3C30}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play" ID="{469F032C-3266-4ECE-AA33-B1EF4D4F8C86}"/>
+				<Event Name="meleeHit" ID="{23F8A4A3-ED9D-45AF-ADA1-283A6E6AEE2B}"/>
+				<Event Name="perder" ID="{D011DEA8-9869-4E53-8E12-A4B2EF2170BA}"/>
+				<Event Name="stepPlayer" ID="{7029D28F-A27F-4090-83FF-578298B13B9B}"/>
+				<Event Name="startButton" ID="{4ED96FCD-26E2-499E-898E-7DC4D6CAF091}"/>
+				<Event Name="jump" ID="{1615CFFF-A30D-4031-918F-AA4CE71F3EFE}"/>
+				<Event Name="hitFloor" ID="{9F3EFF23-E472-4B44-ABDF-040114E10365}"/>
+				<Event Name="dash" ID="{6E385BFA-E79D-4F7E-AB45-859C10A9896A}"/>
+				<Event Name="objective" ID="{CBB34C49-4822-4BCB-8915-743808B6F676}"/>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

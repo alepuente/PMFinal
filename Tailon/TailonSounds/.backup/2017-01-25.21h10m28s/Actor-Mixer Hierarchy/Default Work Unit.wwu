@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{62411CCF-14CE-4C92-AA7B-1BB4AB5A3C30}" SchemaVersion="70">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{62411CCF-14CE-4C92-AA7B-1BB4AB5A3C30}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="40_smith_wesson_single-mike-koenig" ID="{F8520AE4-2DB6-40E7-A93E-2536CE3637ED}" ShortID="111862860" Type="SoundFX">
+					<PropertyList>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{29771C7B-A8F2-40E3-9847-5081282BF663}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6ACF9DF1-5D81-4141-8038-ADEB6CD6F4C7}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="40_smith_wesson_single-mike-koenig" ID="{D72E3F9D-EE29-4B30-B2B1-730ED151CC99}" ShortID="755667334">
+							<Language>SFX</Language>
+							<AudioFile>40_smith_wesson_single-mike-koenig.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="40_smith_wesson_single-mike-koenig" ID="{D72E3F9D-EE29-4B30-B2B1-730ED151CC99}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
