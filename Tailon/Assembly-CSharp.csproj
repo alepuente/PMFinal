@@ -45,6 +45,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\EnemyImpactSpawner.cs" />
+     <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\FireBallImpact.cs" />
+     <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\MaterialModifier.cs" />
+     <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\MobSpawner.cs" />
+     <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\SpawnFireBall.cs" />
+     <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\VolcanManager.cs" />
      <Compile Include="Assets\Tailon\Scripts\CharacterControllers\EnemyController.cs" />
      <Compile Include="Assets\Tailon\Scripts\CharacterControllers\MeleeAttackController.cs" />
      <Compile Include="Assets\Tailon\Scripts\CharacterControllers\MenuController.cs" />
