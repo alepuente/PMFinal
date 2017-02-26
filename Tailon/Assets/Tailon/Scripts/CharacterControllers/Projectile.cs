@@ -26,6 +26,14 @@ public class Projectile : MonoBehaviour
             hit.gameObject.GetComponent<EnemyController>()._hitEmitter.Play();
             gameObject.SetActive(false);
         }
+        else if (hit.gameObject.tag == "Boss")
+        {
+            hit.gameObject.GetComponent<VolcanManager>().health -= _damage;
+            gameObject.SetActive(false);
+        }
+
+
+
     }
     public void setDamage(float damage)
     {

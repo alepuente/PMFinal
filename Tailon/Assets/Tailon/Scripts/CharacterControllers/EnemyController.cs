@@ -44,6 +44,7 @@ public class EnemyController : MonoBehaviour {
         }
 		_stateMachine.Update ();
 	}
+
     void attack()
     {
         _attackTimer += Time.deltaTime;
@@ -58,6 +59,7 @@ public class EnemyController : MonoBehaviour {
             }
         }
     }
+
 	void OnCollisionEnter(Collision hit)
 	{
 		if (hit.gameObject.tag == "floor")
@@ -65,6 +67,7 @@ public class EnemyController : MonoBehaviour {
             _isTouching = true;
 		}
 	}
+
 	void OnCollisionStay(Collision hit)
 	{
 		if (hit.gameObject.tag == "floor") {

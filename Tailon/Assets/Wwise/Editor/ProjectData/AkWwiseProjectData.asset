@@ -166,8 +166,7 @@ MonoBehaviour:
         ObjectType: 7
       ID: -222937841
       Guid: 4f742eeb55b1514fab1147befcb5597c
-  ExpandedItems:
-  - /TailonSounds
+  ExpandedItems: []
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1
