@@ -54,6 +54,11 @@ public class PlayerController : MonoBehaviour
     //Game/Dungeon Controller Reference
     public DungeonStates _dungeonController;
 
+    public int healthPots;
+    public int money;
+    public int healthRestorage;
+    public Text healthPotsText;
+
     void Start()
     {
         _rgb = gameObject.GetComponent<Rigidbody>();
@@ -69,6 +74,8 @@ public class PlayerController : MonoBehaviour
         _dash2 = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._dash2;
         _dash3 = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._dash3;
         _lvlText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._lvlText;
+        healthPotsText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._healthPots;
+        healthPotsText.text = healthPots.ToString();
     }
     void OnDestroy()
     {
@@ -102,7 +109,7 @@ public class PlayerController : MonoBehaviour
         jump();
         dash();
         weapons();
-
+        healthPot();
         // Animate the player.
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
@@ -258,6 +265,16 @@ public class PlayerController : MonoBehaviour
             _bow.GetComponent<SkinnedMeshRenderer>().enabled = true;
         else
             _bow.GetComponent<SkinnedMeshRenderer>().enabled = false;    
+    }
+
+    void healthPot()
+    {
+        if (Input.GetKey(KeyCode.F)&&healthPots>0&(_health+healthRestorage)<_dungeonController._healthRestorage)
+        {
+            healthPots--;
+            _health += _dungeonController._healthRestorage;
+            healthPotsText.text = healthPots.ToString();
+        }
     }
 
 

@@ -63,6 +63,7 @@ MonoBehaviour:
   _playerNextLevelExp: 1000
   _playerHealth: 100
   _dungeonLvl: 1
+  _healthRestorage: 20
 --- !u!114 &114000014149412518
 MonoBehaviour:
   m_ObjectHideFlags: 1

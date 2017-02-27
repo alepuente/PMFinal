@@ -10,6 +10,7 @@ TagManager:
   - Canvas
   - BossCanvas
   - Boss
+  - HealthPot
   layers:
   - Default
   - TransparentFX

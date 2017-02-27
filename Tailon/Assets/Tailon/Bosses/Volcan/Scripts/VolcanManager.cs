@@ -66,5 +66,5 @@ public class VolcanManager : MonoBehaviour {
         Zone3[tmp3].GetComponent<SpawnFireBall>().spawn(Random.Range(0, 1f));
         Zone4[tmp4].GetComponent<SpawnFireBall>().spawn(Random.Range(0, 1f));
     }
-
+   
 }
