@@ -8,7 +8,7 @@ public class PinchitoCollider : MonoBehaviour
     public int speed = 50;
 
     private Rigidbody rgb;
-    public float LifeTime;
+    public float LifeTime = 10;
     private float tmp = 0;
 
 

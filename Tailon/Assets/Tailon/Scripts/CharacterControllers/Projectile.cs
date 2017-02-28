@@ -28,12 +28,9 @@ public class Projectile : MonoBehaviour
         }
         else if (hit.gameObject.tag == "Boss")
         {
-            hit.gameObject.GetComponent<VolcanManager>().health -= _damage;
+            hit.gameObject.GetComponent<BossHealth>().health -= _damage;
             gameObject.SetActive(false);
         }
-
-
-
     }
     public void setDamage(float damage)
     {
