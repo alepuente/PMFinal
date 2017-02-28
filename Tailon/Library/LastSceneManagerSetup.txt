@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Tailon/Scenes/Boss1.unity
+- path: Assets/Tailon/Scenes/Boss2.unity
   isLoaded: 1
   isActive: 1

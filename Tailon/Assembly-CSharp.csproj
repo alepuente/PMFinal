@@ -45,6 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Tailon\Bosses\Erizo\Scripts\PinchitoCollider.cs" />
+     <Compile Include="Assets\Tailon\Bosses\Erizo\Scripts\PinchitosSpawn.cs" />
      <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\EnemyImpactSpawner.cs" />
      <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\FireBallImpact.cs" />
      <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\HUDVolcan.cs" />
