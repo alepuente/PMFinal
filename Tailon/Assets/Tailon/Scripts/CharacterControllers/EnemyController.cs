@@ -9,11 +9,11 @@ public class EnemyController : MonoBehaviour {
     public PlayerController _player;
     public float _speed;
     public float _exp;
+    public float _money;
     public float _attackDistance;
     public float _damage;
     public float _attackSpeed;
     private float _attackTimer;
-    public DungeonStates _gameController;
 	public float criticalHit;
     public ParticleSystem _hitEmitter;
     public bool _canAttack = true;
@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour {
 	void Start () {
 		_player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController>();
 		_target = GameObject.FindGameObjectWithTag ("Player").transform;
-		_damage += _gameController._dungeonLvl * 3;
+        _damage += DungeonStates.instance._dungeonLvl * 3;
 		anim = GetComponent <Animator> ();
 		anim.SetBool ("IsWalking", false);
 		_rgb = gameObject.GetComponent<Rigidbody> ();
@@ -88,7 +88,7 @@ public class EnemyController : MonoBehaviour {
         _rgb.isKinematic = false;
         anim.SetBool("DeadF", true);
         yield return new WaitForSeconds(time);
-        _player._enemyKill.Invoke(_exp);
+        _player._enemyKill.Invoke(_exp, _money);
         Destroy(gameObject);
     }
 

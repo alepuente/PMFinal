@@ -2,25 +2,23 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 public class ObjetiveOnTrigger : MonoBehaviour {
-	public DungeonStates _gameController;
 
 	void OnTriggerEnter(Collider collider){
 		if (collider.gameObject.tag == "Player") {
 			Debug.Log ("On TriggerEnter Player");
 
-            if (_gameController._dungeonLvl == 8)
+            if (DungeonStates.instance._dungeonLvl == 8)
             {
                 SceneManager.LoadScene("GameOver");
-                _gameController.restartStates();
             }
 
-            _gameController._dungeonLvl++;
-			_gameController.dungeonWidth += _gameController._dungeonLvl + 10;
-			_gameController.dungeonHeight += _gameController._dungeonLvl + 10;
-			_gameController.roomMaxSize += 1;
-			_gameController.roomMinSize = 10;
-			_gameController.roomMaxMonsters += 2;
-			_gameController.maxRooms += 1;
+            DungeonStates.instance._dungeonLvl++;
+            DungeonStates.instance.dungeonWidth += DungeonStates.instance._dungeonLvl + 10;
+            DungeonStates.instance.dungeonHeight += DungeonStates.instance._dungeonLvl + 10;
+            DungeonStates.instance.roomMaxSize += 1;
+            DungeonStates.instance.roomMinSize = 10;
+            DungeonStates.instance.roomMaxMonsters += 2;
+            DungeonStates.instance.maxRooms += 1;
 			StartCoroutine (ChangeScene ());
 
 		}

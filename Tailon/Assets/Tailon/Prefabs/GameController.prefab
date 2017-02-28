@@ -23,7 +23,7 @@ GameObject:
   - 114: {fileID: 114000014149412518}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,18 +52,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fc4a487ac8183d4aa87da122ae4816c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dungeonWidth: 42
-  dungeonHeight: 42
-  roomMaxSize: 11
-  roomMinSize: 10
-  roomMaxMonsters: 4
-  maxRooms: 4
+  dungeonWidth: 60
+  dungeonHeight: 30
+  roomMaxSize: 10
+  roomMinSize: 8
+  roomMaxMonsters: 2
+  maxRooms: 3
   _playerLevel: 1
   _playerCurrentLevelExp: 0
   _playerNextLevelExp: 1000
   _playerHealth: 100
   _dungeonLvl: 1
   _healthRestorage: 20
+  _healthPots: 0
+  _staminaRestorage: 10
+  _staminaPots: 0
+  _money: 0
 --- !u!114 &114000014149412518
 MonoBehaviour:
   m_ObjectHideFlags: 1

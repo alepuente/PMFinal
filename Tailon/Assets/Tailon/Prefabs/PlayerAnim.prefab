@@ -524,6 +524,17 @@ MonoBehaviour:
   _lvlText: {fileID: 114000013024527124, guid: 70e1391f00b716a49bdb2dbc0ea8e993, type: 2}
   _dungeonController: {fileID: 114000010413788214, guid: a62c72ca52f2d4b4aa3df413578cfa54,
     type: 2}
+  money: 0
+  moneyText: {fileID: 0}
+  healthPots: 0
+  healthRestorage: 0
+  healthPotsText: {fileID: 0}
+  staminaPots: 0
+  staminaRestorage: 0
+  staminaPotsText: {fileID: 0}
+  onStaminaPot: 0
+  staminaTimer: 0
+  staminaPotDuration: 3
 --- !u!114 &114000013050149732
 MonoBehaviour:
   m_ObjectHideFlags: 1

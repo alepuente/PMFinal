@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class EnemyKillEvent : UnityEvent<float>
+public class EnemyKillEvent : UnityEvent<float,float>
 {
 }
 
@@ -51,43 +51,63 @@ public class PlayerController : MonoBehaviour
     public Image _dash3;
     public Text  _lvlText;
 
-    //Game/Dungeon Controller Reference
-    public DungeonStates _dungeonController;
+
+    public int money;
+    public Text moneyText;
 
     public int healthPots;
-    public int money;
     public int healthRestorage;
     public Text healthPotsText;
+
+    public int staminaPots;
+    public int staminaRestorage;
+    public Text staminaPotsText;
+    public bool onStaminaPot;
+    public float staminaTimer;
+    public float staminaPotDuration;
 
     void Start()
     {
         _rgb = gameObject.GetComponent<Rigidbody>();
-        _level = _dungeonController._playerLevel;
-        _currentLevelExp = _dungeonController._playerCurrentLevelExp;
-        _nextLevelExp = _dungeonController._playerNextLevelExp;
+        _level = DungeonStates.instance._playerLevel;
+        _currentLevelExp = DungeonStates.instance._playerCurrentLevelExp;
+        _nextLevelExp = DungeonStates.instance._playerNextLevelExp;
         _enemyKill = new EnemyKillEvent();
         _enemyKill.AddListener(enemyExp);
-        _health = _dungeonController._playerHealth;
+        _health = DungeonStates.instance._playerHealth;
         anim = GetComponent<Animator>();
         _healthBar = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._healthBar;
         _dash1 = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._dash1;
         _dash2 = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._dash2;
         _dash3 = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._dash3;
         _lvlText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._lvlText;
+        _lvlText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._lvlText;
+
+        moneyText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._money;
+        money = DungeonStates.instance._money;
+
         healthPotsText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._healthPots;
+        healthPots = DungeonStates.instance._healthPots;
         healthPotsText.text = healthPots.ToString();
+
+        staminaPotsText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._staminaPots;
+        staminaPots = DungeonStates.instance._staminaPots;
+        staminaPotsText.text = staminaPots.ToString();
+
     }
     void OnDestroy()
     {
         if (_health <= 0)
         {
-            _dungeonController.restartStates();
+            DungeonStates.instance.restartStates();
+            DungeonStates.instance.resetItems();
             SceneManager.LoadScene("Lobby");
         }
     }
-    void enemyExp(float exp)
+    void enemyExp(float exp, float money)
     {
         _currentLevelExp += exp;
+        money += money;
     }
     void lvlUp()
     {
@@ -97,9 +117,9 @@ public class PlayerController : MonoBehaviour
             _currentLevelExp = _expDifference;
             _level++;
             _nextLevelExp = _nextLevelExp * 1.20f;
-            _dungeonController._playerLevel = _level;
-            _dungeonController._playerCurrentLevelExp = _currentLevelExp;
-            _dungeonController._playerNextLevelExp = _nextLevelExp;
+            DungeonStates.instance._playerLevel = _level;
+            DungeonStates.instance._playerCurrentLevelExp = _currentLevelExp;
+            DungeonStates.instance._playerNextLevelExp = _nextLevelExp;
         }
     }
     void Update()
@@ -109,13 +129,14 @@ public class PlayerController : MonoBehaviour
         jump();
         dash();
         weapons();
-        healthPot();
+        Pots();
         // Animate the player.
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         Animating(h, v);
         _healthBar.fillAmount = _health / 100f;
         _lvlText.text = "Level: " + _level;
+        moneyText.text = money.ToString();
     }
 
     void Animating(float h, float v)
@@ -267,13 +288,34 @@ public class PlayerController : MonoBehaviour
             _bow.GetComponent<SkinnedMeshRenderer>().enabled = false;    
     }
 
-    void healthPot()
+    void Pots()
     {
-        if (Input.GetKey(KeyCode.F)&&healthPots>0&(_health+healthRestorage)<_dungeonController._healthRestorage)
+        if (Input.GetKey(KeyCode.F) && healthPots > 0 && (_health + healthRestorage) < DungeonStates.instance._playerHealth)
         {
             healthPots--;
-            _health += _dungeonController._healthRestorage;
+            DungeonStates.instance._healthPots--;
+            _health += DungeonStates.instance._healthRestorage;
             healthPotsText.text = healthPots.ToString();
+        }
+        if (Input.GetKey(KeyCode.G) && staminaPots > 0 && !onStaminaPot)
+        {
+            staminaPots--;
+            DungeonStates.instance._staminaPots--;
+            staminaPotsText.text = staminaPots.ToString();
+            onStaminaPot = true;
+        }
+        if (onStaminaPot)
+        {
+            staminaTimer += Time.deltaTime;
+            if (staminaTimer >= staminaPotDuration)
+            {
+                staminaTimer = 0;
+                onStaminaPot = false;
+            }
+        }
+        else
+        {
+            staminaTimer = 0;
         }
     }
 
@@ -286,4 +328,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    
 }

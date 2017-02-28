@@ -17,6 +17,7 @@ public class MeleeAttackController : MonoBehaviour
     
     private Image _stamineBar;
     public float stamine = 100;
+    public float maxStamine = 100;
     public float staminenNeeded = 30;
 
     void Start()
@@ -39,8 +40,14 @@ public class MeleeAttackController : MonoBehaviour
             attack();
         }
 
-        if (stamine < 100) stamine += 10f * Time.deltaTime;
-        _stamineBar.fillAmount = stamine / 100f;
+        if (stamine < maxStamine) stamine += DungeonStates.instance._staminaRestorage * Time.deltaTime;
+        _stamineBar.fillAmount = stamine / maxStamine;
+
+        if (_playerController.onStaminaPot)
+        {
+             if (stamine < maxStamine)
+                 stamine += (DungeonStates.instance._staminaRestorage *2) * Time.deltaTime;
+        }
 
         if (Input.GetKeyDown(KeyCode.C)) stamine = 0;
     }

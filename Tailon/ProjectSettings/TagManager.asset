@@ -11,6 +11,7 @@ TagManager:
   - BossCanvas
   - Boss
   - HealthPot
+  - StaminaPot
   layers:
   - Default
   - TransparentFX

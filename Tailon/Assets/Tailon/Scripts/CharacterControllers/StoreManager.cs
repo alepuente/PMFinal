@@ -7,12 +7,15 @@ public class StoreManager : MonoBehaviour {
     RaycastHit hit;
     Camera camera;
     public int healthPotPrice;
+    public int staminaPotPrice;
     private PlayerController _playerController;
-    public TextMesh priceText;
+    public TextMesh priceTextHeatlh;
+    public TextMesh priceTextStamina;
 
 	// Use this for initialization
 	void Start () {
-        priceText.text = healthPotPrice.ToString();
+        priceTextHeatlh.text = healthPotPrice.ToString();
+        priceTextStamina.text = staminaPotPrice.ToString();
         camera = Camera.main;
         if (GameObject.Find("PlayerAnim"))
         {
@@ -28,17 +31,30 @@ public class StoreManager : MonoBehaviour {
         {
             if (hit.transform.tag == "HealthPot" && _playerController.money>=healthPotPrice)
             {
-                priceText.color = Color.green;
+                priceTextHeatlh.color = Color.green;
                 if (_playerController && Input.GetKeyDown(KeyCode.E))
                 {
                     _playerController.healthPots++;
+                    DungeonStates.instance._healthPots++;
                     _playerController.money -= healthPotPrice;
                     _playerController.healthPotsText.text = _playerController.healthPots.ToString();
                 }
             }
+            else if (hit.transform.tag == "StaminaPot" && _playerController.money >= staminaPotPrice)
+            {
+                priceTextStamina.color = Color.green;
+                if (_playerController && Input.GetKeyDown(KeyCode.E))
+                {
+                    _playerController.staminaPots++;
+                    DungeonStates.instance._staminaPots++;
+                    _playerController.money -= staminaPotPrice;
+                    _playerController.staminaPotsText.text = _playerController.staminaPots.ToString();
+                }
+            }
             else
             {
-                priceText.color = Color.red;
+                priceTextHeatlh.color = Color.red;
+                priceTextStamina.color = Color.red;
             }
         }
     }

@@ -508,7 +508,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Main Men\xFA\n"
+  m_Text: 'Main Menu
+
+'
 --- !u!222 &222000010748427296
 CanvasRenderer:
   m_ObjectHideFlags: 1

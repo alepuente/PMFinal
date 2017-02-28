@@ -11,6 +11,8 @@ public class hUDScript : MonoBehaviour {
     public Image _dash3;
     public Text _lvlText;
     public Text _healthPots;
+    public Text _staminaPots;
+    public Text _money;
 
 	// Use this for initialization
 	void Start () {
