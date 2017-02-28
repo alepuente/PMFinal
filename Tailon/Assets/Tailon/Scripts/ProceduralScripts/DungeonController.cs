@@ -49,27 +49,16 @@ public class DungeonController:MonoBehaviour
 
 	private Tile[,] _tileMap = null;
 	private GameObject[,] _tileObjects = null;
-    private DungeonStates _instance;
+
 	void Start()
 	{
-        _instance = GameObject.FindGameObjectWithTag("GameController").GetComponent<DungeonStates>();
-        if (_instance)
-        {
-            //Debug.LogError(_instance.dungeonHeight);
-        }
-        else
-        {
-            Debug.LogError("null");
-        }
-        dungeonHeight = _instance.dungeonHeight;
-        roomMaxSize = _instance.roomMaxSize;
-        roomMinSize = _instance.roomMinSize;
-        roomMaxMonsters = _instance.roomMaxMonsters;
-        maxRooms = _instance.maxRooms;
-        if (_instance)
-        {
-            Debug.LogError(dungeonHeight);
-        }
+        dungeonWidth = DungeonStates.instance.dungeonWidth;
+        dungeonHeight = DungeonStates.instance.dungeonHeight;
+        roomMaxSize = DungeonStates.instance.roomMaxSize;
+        roomMinSize = DungeonStates.instance.roomMinSize;
+        roomMaxMonsters = DungeonStates.instance.roomMaxMonsters;
+        maxRooms = DungeonStates.instance.maxRooms;
+        
 		// generamos el dungeon
 		_dungeonGenerator = new AABBGenerator ();
 		//_dungeonGenerator = new BSPGenerator();

@@ -1,12 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Tailon/Scenes/Menu.unity
-=======
-<<<<<<< HEAD
-- path: Assets/Tailon/Scenes/Boss2.unity
-=======
-- path: Assets/Tailon/Scenes/Lobby.unity
->>>>>>> 1296d3e3761fce7f2e328b4f084de6379e11c808
->>>>>>> b506409ecb783b8465f6e418f80ae6e001d2fbe0
+- path: Assets/Tailon/Scenes/Boss1.unity
   isLoaded: 1
   isActive: 1

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class VolcanManager : MonoBehaviour {
 
@@ -12,18 +11,8 @@ public class VolcanManager : MonoBehaviour {
 
     public float attackTime = 10;
     private float _attackTimeCount = 0;
-
-    public float health = 500;
-    public float healthMax = 500;
     private bool spawn = false;
-
-    private Image _healthBar;
-
-    void Start()
-    {
-        _healthBar = GameObject.FindGameObjectWithTag("BossCanvas").GetComponent<HUDVolcan>().bossHealthBar;
-    }
-
+    
     void Update()
     {
          _attackTimeCount += Time.deltaTime;
@@ -39,19 +28,6 @@ public class VolcanManager : MonoBehaviour {
             Attack();
             spawn = false;
         }
-
-        _healthBar.fillAmount = health / healthMax;
-
-        if (health <= 0)
-        {
-            Debug.Log("<color=yellow>BOSS DEATH!</color>");
-            Destroy(gameObject);
-        }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            health -= 10;
-        }
     }
 
     void Attack()
@@ -66,5 +42,4 @@ public class VolcanManager : MonoBehaviour {
         Zone3[tmp3].GetComponent<SpawnFireBall>().spawn(Random.Range(0, 1f));
         Zone4[tmp4].GetComponent<SpawnFireBall>().spawn(Random.Range(0, 1f));
     }
-   
 }
