@@ -14,9 +14,7 @@ public class PinchitoCollider : MonoBehaviour
 
     void Start()
     {
-
         rgb = gameObject.GetComponent<Rigidbody>();
-
     }
 
     void OnTriggerEnter(Collider hit)

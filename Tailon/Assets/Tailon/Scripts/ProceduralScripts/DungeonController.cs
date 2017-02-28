@@ -58,11 +58,7 @@ public class DungeonController:MonoBehaviour
         roomMinSize = DungeonStates.instance.roomMinSize;
         roomMaxMonsters = DungeonStates.instance.roomMaxMonsters;
         maxRooms = DungeonStates.instance.maxRooms;
-<<<<<<< HEAD
-       
-=======
-        
->>>>>>> 2788f47433a990e1fbe5cdf172bc4e157f72b38d
+
 		// generamos el dungeon
 		_dungeonGenerator = new AABBGenerator ();
 		//_dungeonGenerator = new BSPGenerator();
