@@ -10,6 +10,7 @@ public class hUDScript : MonoBehaviour {
     public Image _dash2;
     public Image _dash3;
     public Text _lvlText;
+    public Text _healthPots;
 
 	// Use this for initialization
 	void Start () {

@@ -15,6 +15,7 @@ public class DungeonStates : MonoBehaviour {
     public float _playerNextLevelExp;
     public float _playerHealth;
     public int _dungeonLvl;
+    public int _healthRestorage;
 
 	public void restartStates(){
 		dungeonWidth = 30;
@@ -28,6 +29,8 @@ public class DungeonStates : MonoBehaviour {
        _playerCurrentLevelExp = 0;
        _playerHealth = 100;
        _playerNextLevelExp = 1000;
+       _healthRestorage = 20;
+        
 	}
 }
 
