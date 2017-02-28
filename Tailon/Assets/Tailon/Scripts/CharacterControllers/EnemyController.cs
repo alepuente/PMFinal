@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour {
     public PlayerController _player;
     public float _speed;
     public float _exp;
-    public float _money;
+    public int _money;
     public float _attackDistance;
     public float _damage;
     public float _attackSpeed;

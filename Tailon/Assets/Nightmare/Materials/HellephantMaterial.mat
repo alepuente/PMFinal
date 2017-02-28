@@ -140,6 +140,12 @@ Material:
         name: _UVSec
       second: 0
     - first:
+        name: _V_CW_Rim_Bias
+      second: 0.2
+    - first:
+        name: _V_CW_Rim_Power
+      second: 3
+    - first:
         name: _ZWrite
       second: 1
     m_Colors:
@@ -155,3 +161,12 @@ Material:
     - first:
         name: _SpecColor
       second: {r: 0.283737, g: 0.2845931, b: 0.30147058, a: 1}
+    - first:
+        name: _V_CW_DetailTex_Scroll
+      second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _V_CW_MainTex_Scroll
+      second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _V_CW_Rim_Color
+      second: {r: 1, g: 1, b: 1, a: 1}

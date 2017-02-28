@@ -29,26 +29,24 @@ public class StoreManager : MonoBehaviour {
         ray = camera.ScreenPointToRay(new Vector3(Screen.width/2, Screen.height/2, 0));
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.tag == "HealthPot" && _playerController.money>=healthPotPrice)
+            if (hit.transform.tag == "HealthPot" && DungeonStates.instance._money >= healthPotPrice)
             {
                 priceTextHeatlh.color = Color.green;
                 if (_playerController && Input.GetKeyDown(KeyCode.E))
                 {
-                    _playerController.healthPots++;
                     DungeonStates.instance._healthPots++;
-                    _playerController.money -= healthPotPrice;
-                    _playerController.healthPotsText.text = _playerController.healthPots.ToString();
+                    DungeonStates.instance._money -= healthPotPrice;
+                    _playerController.refreshHUD();
                 }
             }
-            else if (hit.transform.tag == "StaminaPot" && _playerController.money >= staminaPotPrice)
+            else if (hit.transform.tag == "StaminaPot" && DungeonStates.instance._money >= staminaPotPrice)
             {
                 priceTextStamina.color = Color.green;
                 if (_playerController && Input.GetKeyDown(KeyCode.E))
                 {
-                    _playerController.staminaPots++;
                     DungeonStates.instance._staminaPots++;
-                    _playerController.money -= staminaPotPrice;
-                    _playerController.staminaPotsText.text = _playerController.staminaPots.ToString();
+                   DungeonStates.instance._money -= staminaPotPrice;
+                   _playerController.refreshHUD();
                 }
             }
             else

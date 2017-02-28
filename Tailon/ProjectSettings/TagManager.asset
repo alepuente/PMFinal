@@ -12,6 +12,8 @@ TagManager:
   - Boss
   - HealthPot
   - StaminaPot
+  - HealthPotDrop
+  - StaminaPotDrop
   layers:
   - Default
   - TransparentFX

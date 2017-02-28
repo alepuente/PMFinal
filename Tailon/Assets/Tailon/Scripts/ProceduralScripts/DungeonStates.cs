@@ -51,7 +51,6 @@ public class DungeonStates : MonoBehaviour {
        _playerNextLevelExp = 1000;
        _healthRestorage = 20;
        _staminaRestorage = 10;
-       _money = 0;
 	}
     public void resetItems()
     {

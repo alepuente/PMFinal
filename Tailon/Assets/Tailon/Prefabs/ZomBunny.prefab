@@ -190,18 +190,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3687635913f719442b088d1be4ae14b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _target: {fileID: 0}
   _maxDistance: 20
   _health: 100
+  _player: {fileID: 0}
   _speed: 4
   _exp: 500
+  _money: 10
   _attackDistance: 3
   _damage: 5
   _attackSpeed: 3
-  _gameController: {fileID: 114000010413788214, guid: a62c72ca52f2d4b4aa3df413578cfa54,
-    type: 2}
   criticalHit: -10
   _hitEmitter: {fileID: 198000012890023812}
+  _canAttack: 1
+  _rgb: {fileID: 0}
   _isTouching: 0
+  anim: {fileID: 0}
 --- !u!137 &137000011145833606
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -250,7 +254,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010473450712}
-  serializedVersion: 2
+  serializedVersion: 4
   lengthInSec: 0.42
   startDelay:
     scalar: 0
@@ -288,12 +292,13 @@ ParticleSystem:
       m_RotationOrder: 4
     minMaxState: 0
   speed: 1
-  randomSeed: 2811466221
   looping: 0
   prewarm: 0
   playOnAwake: 0
   moveWithTransform: 1
+  autoRandomSeed: 0
   scalingMode: 2
+  randomSeed: -1483501075
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -1993,7 +1998,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011415138830}
-  serializedVersion: 2
+  serializedVersion: 4
   lengthInSec: 0.1
   startDelay:
     scalar: 0
@@ -2031,12 +2036,13 @@ ParticleSystem:
       m_RotationOrder: 4
     minMaxState: 0
   speed: 1
-  randomSeed: 0
   looping: 0
   prewarm: 0
   playOnAwake: 0
   moveWithTransform: 1
+  autoRandomSeed: 1
   scalingMode: 2
+  randomSeed: 0
   InitialModule:
     serializedVersion: 2
     enabled: 1

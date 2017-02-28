@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class EnemyKillEvent : UnityEvent<float,float>
+public class EnemyKillEvent : UnityEvent<float, int>
 {
 }
 
@@ -52,15 +52,10 @@ public class PlayerController : MonoBehaviour
     public Text  _lvlText;
 
 
-    public int money;
     public Text moneyText;
 
-    public int healthPots;
-    public int healthRestorage;
     public Text healthPotsText;
 
-    public int staminaPots;
-    public int staminaRestorage;
     public Text staminaPotsText;
     public bool onStaminaPot;
     public float staminaTimer;
@@ -84,15 +79,12 @@ public class PlayerController : MonoBehaviour
         _lvlText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._lvlText;
 
         moneyText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._money;
-        money = DungeonStates.instance._money;
 
         healthPotsText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._healthPots;
-        healthPots = DungeonStates.instance._healthPots;
-        healthPotsText.text = healthPots.ToString();
+        healthPotsText.text = DungeonStates.instance._healthPots.ToString();
 
         staminaPotsText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._staminaPots;
-        staminaPots = DungeonStates.instance._staminaPots;
-        staminaPotsText.text = staminaPots.ToString();
+        staminaPotsText.text = DungeonStates.instance._staminaPots.ToString();
 
     }
     void OnDestroy()
@@ -104,10 +96,11 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("Lobby");
         }
     }
-    void enemyExp(float exp, float money)
+    void enemyExp(float exp, int _money)
     {
         _currentLevelExp += exp;
-        money += money;
+        DungeonStates.instance._money += _money;
+        refreshHUD();
     }
     void lvlUp()
     {
@@ -136,7 +129,13 @@ public class PlayerController : MonoBehaviour
         Animating(h, v);
         _healthBar.fillAmount = _health / 100f;
         _lvlText.text = "Level: " + _level;
-        moneyText.text = money.ToString();
+    }
+
+    public void refreshHUD()
+    {
+        moneyText.text = DungeonStates.instance._money.ToString();
+        healthPotsText.text = DungeonStates.instance._healthPots.ToString();
+        staminaPotsText.text = DungeonStates.instance._staminaPots.ToString();
     }
 
     void Animating(float h, float v)
@@ -290,19 +289,17 @@ public class PlayerController : MonoBehaviour
 
     void Pots()
     {
-        if (Input.GetKey(KeyCode.F) && healthPots > 0 && (_health + healthRestorage) < DungeonStates.instance._playerHealth)
+        if (Input.GetKeyDown(KeyCode.F) && DungeonStates.instance._healthPots > 0 && (_health + DungeonStates.instance._healthRestorage) < DungeonStates.instance._playerHealth)
         {
-            healthPots--;
             DungeonStates.instance._healthPots--;
             _health += DungeonStates.instance._healthRestorage;
-            healthPotsText.text = healthPots.ToString();
+            refreshHUD();
         }
-        if (Input.GetKey(KeyCode.G) && staminaPots > 0 && !onStaminaPot)
+        if (Input.GetKey(KeyCode.G) && DungeonStates.instance._staminaPots > 0 && !onStaminaPot)
         {
-            staminaPots--;
             DungeonStates.instance._staminaPots--;
-            staminaPotsText.text = staminaPots.ToString();
             onStaminaPot = true;
+            refreshHUD();
         }
         if (onStaminaPot)
         {
@@ -325,6 +322,18 @@ public class PlayerController : MonoBehaviour
         if (hit.gameObject.tag == "floor")
         {
             _canJump = true;
+        }
+        if (hit.gameObject.tag == "HealthPotDrop")
+        {
+            Destroy(hit.gameObject);
+            DungeonStates.instance._healthPots++;
+            refreshHUD();
+        }
+        if (hit.gameObject.tag == "StaminaPotDrop")
+        {
+            Destroy(hit.gameObject);
+            DungeonStates.instance._staminaPots++;
+            refreshHUD();
         }
     }
 
