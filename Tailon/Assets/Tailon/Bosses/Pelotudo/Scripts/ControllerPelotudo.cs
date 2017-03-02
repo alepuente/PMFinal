@@ -8,7 +8,6 @@ public class ControllerPelotudo : MonoBehaviour {
     void Update () {
 
         transform.Rotate(Vector3.up, rotVelocity * Time.deltaTime);
-
     }
     
 }

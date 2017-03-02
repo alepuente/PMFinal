@@ -50,6 +50,6 @@ public class PinchitosSpawn : MonoBehaviour {
         quat.z += Random.Range(-0.005f, 0.005f);
 
         Instantiate(pinchito, transform.position, quat);
-        Debug.LogError("<color=yellow>Pinchito spawneado!!</color>");
+        //Debug.LogError("<color=yellow>Pinchito spawneado!!</color>");
     }
 }

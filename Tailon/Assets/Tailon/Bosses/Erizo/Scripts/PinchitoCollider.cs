@@ -11,6 +11,7 @@ public class PinchitoCollider : MonoBehaviour
     public float LifeTime = 10;
     private float tmp = 0;
 
+    public bool forward;
 
     void Start()
     {
@@ -29,7 +30,11 @@ public class PinchitoCollider : MonoBehaviour
 
     void Update()
     {
-        rgb.AddForce(transform.forward * speed);
+        if(forward)
+            rgb.AddForce(-transform.forward * speed);
+        else
+            rgb.AddForce(transform.forward * speed);
+
 
         tmp += Time.deltaTime;
         if (tmp >= LifeTime)

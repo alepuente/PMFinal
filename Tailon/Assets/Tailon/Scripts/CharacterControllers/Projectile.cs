@@ -20,6 +20,7 @@ public class Projectile : MonoBehaviour
     }
     void OnTriggerEnter(Collider hit)
     {
+
         if (hit.gameObject.tag == "Enemy")
         {
             hit.gameObject.GetComponent<EnemyController>()._health -= _damage;
