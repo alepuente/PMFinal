@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
         staminaPotsText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._staminaPots;
         staminaPotsText.text = DungeonStates.instance._staminaPots.ToString();
 
+        refreshHUD();
     }
     void OnDestroy()
     {

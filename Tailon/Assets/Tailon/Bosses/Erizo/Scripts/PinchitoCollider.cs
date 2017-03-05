@@ -23,6 +23,12 @@ public class PinchitoCollider : MonoBehaviour
         if (hit.gameObject.tag == "Player")
         {
             hit.gameObject.GetComponent<PlayerController>()._health -= damage;
+
+            if (hit.gameObject.GetComponent<PlayerController>()._health <= 0)
+            {
+                Destroy(hit.gameObject);
+            }
+
             Destroy(gameObject);
         }
 

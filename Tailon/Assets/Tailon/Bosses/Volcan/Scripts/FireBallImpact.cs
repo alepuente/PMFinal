@@ -10,39 +10,35 @@ public class FireBallImpact : MonoBehaviour {
     {
         if (hit.gameObject.tag == "floor")
         {
-            Vector3 tmp = Vector3.zero;
-            tmp.x = transform.position.x;
-            tmp.y = 0.1f;
-            tmp.z = transform.position.z;
-
-            Instantiate(impact, tmp, transform.rotation);
-            gameObject.SetActive(false);
+            picanaso();
         }
         else
             if (hit.gameObject.tag == "Player")
         {
-            Vector3 tmp = Vector3.zero;
-            tmp.x = transform.position.x;
-            tmp.y = 0.1f;
-            tmp.z = transform.position.z;
-
-            Instantiate(impact, tmp, transform.rotation);
-            gameObject.SetActive(false);
-
+            picanaso();
             hit.gameObject.GetComponent<PlayerController>()._health -= damage;
+
+            if (hit.gameObject.GetComponent<PlayerController>()._health <= 0)
+            {
+                Destroy(hit.gameObject);
+            }
         }
             else
                 if (hit.gameObject.tag == "Enemy")
                 {
-                    Vector3 tmp = Vector3.zero;
-                    tmp.x = transform.position.x;
-                    tmp.y = 0.1f;
-                    tmp.z = transform.position.z;
-
-                    Instantiate(impact, tmp, transform.rotation);
-                    gameObject.SetActive(false);
+                    picanaso();
                 }
+    }
 
+    void picanaso()
+    {
+        Vector3 tmp = Vector3.zero;
+        tmp.x = transform.position.x;
+        tmp.y = 0.1f;
+        tmp.z = transform.position.z;
+
+        Instantiate(impact, tmp, transform.rotation);
+        gameObject.SetActive(false);
     }
 
 }

@@ -32,6 +32,10 @@ public class Projectile : MonoBehaviour
             hit.gameObject.GetComponent<BossHealth>().health -= _damage;
             gameObject.SetActive(false);
         }
+        else if (hit.gameObject.tag == "wall")
+        {
+            gameObject.SetActive(false);
+        }
     }
     public void setDamage(float damage)
     {
