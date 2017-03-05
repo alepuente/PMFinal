@@ -51,8 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf1ff7fd7e5f124a8b948d7c5e2c44d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dungeonController: {fileID: 114000010413788214, guid: a62c72ca52f2d4b4aa3df413578cfa54,
-    type: 2}
   CameraPrefab: {fileID: 1000010587563862, guid: 7b6a6c13a6e5baa4ea45eec09c763337,
     type: 2}
   pasilloTilePrefab: {fileID: 1000010341573282, guid: 1ee3e88ce85e1604ea068ccbbd207a26,
@@ -83,4 +81,8 @@ MonoBehaviour:
   enemy1Prefab: {fileID: 1000013368536954, guid: d7a937ec750da4746bf29a77ef052aa4,
     type: 2}
   enemy2Prefab: {fileID: 1000012680712674, guid: 68209912c582dfd44813f62f6d9447b5,
+    type: 2}
+  enemy3Prefab: {fileID: 1000010664857660, guid: 875605feaefe09241aec59517296bdbb,
+    type: 2}
+  enemy4Prefab: {fileID: 1000012511939904, guid: fdba2f3e4e0303d47b0f3b7e83d525fc,
     type: 2}

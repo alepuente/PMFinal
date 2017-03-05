@@ -18,6 +18,4 @@ public class Death : State<EnemyController> {
         base.OnEnable(owner, newStateMachine);
         ownerObject.destroy();
     }
-
-
 }

@@ -15,6 +15,7 @@ TagManager:
   - HealthPotDrop
   - StaminaPotDrop
   - wall
+  - Enemy2
   layers:
   - Default
   - TransparentFX
