@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour {
     public GameObject instructionsPanel;
+    public GameObject tutorialPanel;
+    public Button playButton;
+    public Button exitButton;
+    public Toggle neverAsk;
 
 	// Use this for initialization
 	void Start () {
@@ -13,8 +17,8 @@ public class MenuController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
+
     public void showInstructions()
     {
         if (instructionsPanel.activeSelf)
@@ -27,6 +31,21 @@ public class MenuController : MonoBehaviour {
         }
     }
 
+    public void showTutorial()
+    {
+        if (tutorialPanel.activeSelf)
+        {
+            tutorialPanel.SetActive(false);
+            playButton.gameObject.SetActive(true);
+            exitButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            playButton.gameObject.SetActive(false);
+            exitButton.gameObject.SetActive(false);
+            tutorialPanel.SetActive(true);
+        }
+    }
 
     public void exit()
     {
@@ -37,4 +56,8 @@ public class MenuController : MonoBehaviour {
     {
         SceneManager.LoadScene("Lobby");
     }
+
+    public void toTutorial(){
+         SceneManager.LoadScene( "Tutorial");
+     }
 }
