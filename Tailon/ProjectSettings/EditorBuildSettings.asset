@@ -9,13 +9,15 @@ EditorBuildSettings:
     path: Assets/Tailon/Scenes/Menu.unity
   - enabled: 1
     path: Assets/Tailon/Scenes/Lobby.unity
-  - enabled: 0
-    path: Assets/Tailon/Scenes/Player&Camera.unity
   - enabled: 1
     path: Assets/Tailon/Scenes/LoadingScene.unity
   - enabled: 1
-    path: Assets/Tailon/Scenes/GameOver.unity
+    path: Assets/Tailon/Scenes/ProceduralTests.unity
   - enabled: 1
     path: Assets/Tailon/Scenes/Boss1.unity
   - enabled: 1
-    path: Assets/Tailon/Scenes/ProceduralTests.unity
+    path: Assets/Tailon/Scenes/Boss3.unity
+  - enabled: 1
+    path: Assets/Tailon/Scenes/Boss2.unity
+  - enabled: 1
+    path: Assets/Tailon/Scenes/GameOver.unity

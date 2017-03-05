@@ -179,6 +179,7 @@ GameObject:
   - 95: {fileID: 95000013058636994}
   - 114: {fileID: 114000013696434148}
   - 114: {fileID: 114000014092859306}
+  - 114: {fileID: 114000011466257028}
   m_Layer: 0
   m_Name: BossSphere
   m_TagString: Boss
@@ -9754,6 +9755,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000011466257028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010245793080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ffc416e48a41944198fd6969333e939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tp: {fileID: 1000013435142060, guid: bf5062aec16f57045bd9d00b42e3a143, type: 2}
 --- !u!114 &114000013128210602
 MonoBehaviour:
   m_ObjectHideFlags: 1

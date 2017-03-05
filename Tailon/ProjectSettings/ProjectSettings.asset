@@ -555,7 +555,7 @@ PlayerSettings:
   XboxOne::VR::enabledDevices: []
   iOS::VR::enabledDevices: []
   tvOS::VR::enabledDevices: []
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudProjectId: 4983a6cb-774b-4c27-b4c4-f2b056e5eaa6
+  projectName: Tailon
+  organizationId: ramamaldonado-gmail-com
   cloudEnabled: 0

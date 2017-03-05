@@ -52,6 +52,7 @@
      <Compile Include="Assets\Tailon\Bosses\Erizo\Scripts\PinchitosSpawn.cs" />
      <Compile Include="Assets\Tailon\Bosses\Pelotudo\Scripts\ControllerPelotudo.cs" />
      <Compile Include="Assets\Tailon\Bosses\Pelotudo\Scripts\PelotasSpawner.cs" />
+     <Compile Include="Assets\Tailon\Bosses\SpawnObjectiveTP.cs" />
      <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\EnemyImpactSpawner.cs" />
      <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\FireBallImpact.cs" />
      <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\HUDVolcan.cs" />

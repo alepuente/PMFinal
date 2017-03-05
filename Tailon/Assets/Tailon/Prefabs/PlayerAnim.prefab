@@ -477,11 +477,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b62bf1b3cbe344db9dc6194f0b1b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 1.45
+  _range: 2
   _knockback: 150
   _height: 200
-  _distance: 1.21
+  _distance: 2.02
   stamine: 100
+  maxStamine: 100
   staminenNeeded: 30
 --- !u!114 &114000011679082600
 MonoBehaviour:
@@ -501,7 +502,7 @@ MonoBehaviour:
   _dashRegen: 5
   _melee: 0
   _range: 1
-  _meleeDamage: 10
+  _meleeDamage: 30
   _rangeDamage: 5
   _bow: {fileID: 1000010303927712}
   _sword: {fileID: 1000011053970258}
@@ -522,15 +523,8 @@ MonoBehaviour:
   _dash2: {fileID: 114000013017586264, guid: 70e1391f00b716a49bdb2dbc0ea8e993, type: 2}
   _dash3: {fileID: 114000011234308194, guid: 70e1391f00b716a49bdb2dbc0ea8e993, type: 2}
   _lvlText: {fileID: 114000013024527124, guid: 70e1391f00b716a49bdb2dbc0ea8e993, type: 2}
-  _dungeonController: {fileID: 114000010413788214, guid: a62c72ca52f2d4b4aa3df413578cfa54,
-    type: 2}
-  money: 0
   moneyText: {fileID: 0}
-  healthPots: 0
-  healthRestorage: 0
   healthPotsText: {fileID: 0}
-  staminaPots: 0
-  staminaRestorage: 0
   staminaPotsText: {fileID: 0}
   onStaminaPot: 0
   staminaTimer: 0

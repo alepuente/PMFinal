@@ -23,6 +23,7 @@ public class BossHealth : MonoBehaviour
 
         if (health <= 0)
         {
+            gameObject.GetComponent<SpawnObjectiveTP>().spawnObjectiveTP();
             Debug.Log("<color=yellow>BOSS DEATH!</color>");
             Destroy(gameObject);
         }
