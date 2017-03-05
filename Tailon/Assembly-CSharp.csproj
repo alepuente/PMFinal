@@ -38,10 +38,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity5.4.3/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity5.4.3/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +70,7 @@
      <Compile Include="Assets\Tailon\Scripts\CharacterControllers\RangeAttackController.cs" />
      <Compile Include="Assets\Tailon\Scripts\CharacterControllers\StoreManager.cs" />
      <Compile Include="Assets\Tailon\Scripts\CharacterControllers\TutorialController.cs" />
+     <Compile Include="Assets\Tailon\Scripts\CharacterControllers\TutorialEnd.cs" />
      <Compile Include="Assets\Tailon\Scripts\CharacterControllers\hUDScript.cs" />
      <Compile Include="Assets\Tailon\Scripts\ProceduralScripts\AABBGenerator.cs" />
      <Compile Include="Assets\Tailon\Scripts\ProceduralScripts\DonDestroyOnLoad.cs" />
@@ -201,10 +202,10 @@
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
      <None Include="Assets\WwiseSettings.xml" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity5.4.3/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity5.4.3/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
