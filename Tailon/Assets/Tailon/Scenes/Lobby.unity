@@ -380,6 +380,10 @@ Prefab:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013265116220, guid: 70e1391f00b716a49bdb2dbc0ea8e993, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70e1391f00b716a49bdb2dbc0ea8e993, type: 2}
   m_IsPrefabParent: 0
