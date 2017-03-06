@@ -22,6 +22,9 @@ public class DungeonStates : MonoBehaviour {
     public int _staminaRestorage;
     public int _staminaPots;
     public int _money;
+    public float _meleeDamage;
+    public float _rangeDamage;
+    public float _maxStamine;
 
     void Awake()
     {
@@ -33,7 +36,7 @@ public class DungeonStates : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-
+        _money = PlayerPrefs.GetInt("money");
         DontDestroyOnLoad(gameObject);
     }
 
@@ -56,6 +59,13 @@ public class DungeonStates : MonoBehaviour {
     {
         _healthPots = 0;
         _staminaPots = 0;
+    }
+    public void saveStats()
+    {
+        PlayerPrefs.SetInt("money", _money);
+        PlayerPrefs.SetInt("healthRestorage", _healthRestorage);
+        PlayerPrefs.SetInt("staminaRestorage", _staminaRestorage);
+        PlayerPrefs.Save();
     }
 }
 

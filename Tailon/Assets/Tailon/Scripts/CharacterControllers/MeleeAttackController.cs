@@ -25,8 +25,8 @@ public class MeleeAttackController : MonoBehaviour
         _playerController = GetComponentInParent<PlayerController>();
         _sword = GameObject.Find("Sword");
         _swordAnim = _sword.GetComponent<Animator>();
-
         _stamineBar = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._stamineBar;
+        stamine = DungeonStates.instance._maxStamine;
     }
     void OnDrawGizmosSelected()
     {
@@ -40,12 +40,12 @@ public class MeleeAttackController : MonoBehaviour
             attack();
         }
 
-        if (stamine < maxStamine) stamine += DungeonStates.instance._staminaRestorage * Time.deltaTime;
+        if (stamine < DungeonStates.instance._maxStamine) stamine += DungeonStates.instance._staminaRestorage * Time.deltaTime;
         _stamineBar.fillAmount = stamine / maxStamine;
 
         if (_playerController.onStaminaPot)
         {
-             if (stamine < maxStamine)
+            if (stamine < DungeonStates.instance._maxStamine)
                  stamine += (DungeonStates.instance._staminaRestorage *2) * Time.deltaTime;
         }
 

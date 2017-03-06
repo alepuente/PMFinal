@@ -32,6 +32,13 @@ public class PinchitoCollider : MonoBehaviour
             Destroy(gameObject);
         }
 
+        else
+
+            if (hit.gameObject.tag == "wall")
+            {
+                gameObject.SetActive(false);
+            }
+
     }
 
     void Update()

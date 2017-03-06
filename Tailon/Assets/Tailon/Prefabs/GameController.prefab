@@ -68,6 +68,9 @@ MonoBehaviour:
   _staminaRestorage: 10
   _staminaPots: 0
   _money: 0
+  _meleeDamage: 30
+  _rangeDamage: 5
+  _maxStamine: 100
 --- !u!114 &114000014149412518
 MonoBehaviour:
   m_ObjectHideFlags: 1

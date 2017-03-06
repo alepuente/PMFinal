@@ -61,7 +61,9 @@
      <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\SpawnFireBall.cs" />
      <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\SpawnPlayer.cs" />
      <Compile Include="Assets\Tailon\Bosses\Volcan\Scripts\VolcanManager.cs" />
+     <Compile Include="Assets\Tailon\Scripts\CharacterControllers\Enemy4Controller.cs" />
      <Compile Include="Assets\Tailon\Scripts\CharacterControllers\EnemyController.cs" />
+     <Compile Include="Assets\Tailon\Scripts\CharacterControllers\EnemyHealth.cs" />
      <Compile Include="Assets\Tailon\Scripts\CharacterControllers\MeleeAttackController.cs" />
      <Compile Include="Assets\Tailon\Scripts\CharacterControllers\MenuController.cs" />
      <Compile Include="Assets\Tailon\Scripts\CharacterControllers\Pause.cs" />

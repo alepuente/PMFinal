@@ -27,6 +27,12 @@ public class Projectile : MonoBehaviour
             hit.gameObject.GetComponent<EnemyController>()._hitEmitter.Play();
             gameObject.SetActive(false);
         }
+        if (hit.gameObject.tag == "Enemy2")
+        {
+            hit.gameObject.GetComponent<EnemyHealth>()._hitEmitter.Play();
+            hit.gameObject.GetComponent<EnemyHealth>()._health -= _damage;
+            gameObject.SetActive(false);
+        }
         else if (hit.gameObject.tag == "Boss")
         {
             hit.gameObject.GetComponent<BossHealth>().health -= _damage;

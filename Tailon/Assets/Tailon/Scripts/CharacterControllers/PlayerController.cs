@@ -86,6 +86,9 @@ public class PlayerController : MonoBehaviour
         staminaPotsText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._staminaPots;
         staminaPotsText.text = DungeonStates.instance._staminaPots.ToString();
 
+        _meleeDamage = DungeonStates.instance._meleeDamage;
+        _rangeDamage = DungeonStates.instance._rangeDamage;
+
         refreshHUD();
     }
     void OnDestroy()
@@ -101,6 +104,7 @@ public class PlayerController : MonoBehaviour
     {
         _currentLevelExp += exp;
         DungeonStates.instance._money += _money;
+        DungeonStates.instance.saveStats();
         refreshHUD();
     }
     void lvlUp()

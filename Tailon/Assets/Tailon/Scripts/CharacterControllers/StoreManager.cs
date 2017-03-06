@@ -37,6 +37,7 @@ public class StoreManager : MonoBehaviour {
                     DungeonStates.instance._healthPots++;
                     DungeonStates.instance._money -= healthPotPrice;
                     _playerController.refreshHUD();
+                    DungeonStates.instance.saveStats();
                 }
             }
             else if (hit.transform.tag == "StaminaPot" && DungeonStates.instance._money >= staminaPotPrice)
@@ -47,6 +48,7 @@ public class StoreManager : MonoBehaviour {
                     DungeonStates.instance._staminaPots++;
                    DungeonStates.instance._money -= staminaPotPrice;
                    _playerController.refreshHUD();
+                   DungeonStates.instance.saveStats();
                 }
             }
             else

@@ -32,7 +32,9 @@ public class DungeonController:MonoBehaviour
 
 
 	public GameObject enemy1Prefab = null;
-	public GameObject enemy2Prefab = null;
+    public GameObject enemy2Prefab = null;
+    public GameObject enemy3Prefab = null;
+    public GameObject enemy4Prefab = null;
 
     private GameObject _objetive = null;
     private int _objetiveX = 0;
@@ -179,14 +181,34 @@ public class DungeonController:MonoBehaviour
 
             GameObject newEnemyObject = null;
 
-			int value = Random.Range (0, 10);
-			if (value < 7)
+			int value = Random.Range (0, 4);
+            switch (value)
             {
-                newEnemyObject = (GameObject)GameObject.Instantiate(enemy1Prefab);
-            }
-            else
-            {
-				newEnemyObject = (GameObject)GameObject.Instantiate(enemy2Prefab);
+                case 0:
+                    {
+                        newEnemyObject = (GameObject)GameObject.Instantiate(enemy1Prefab);
+                    }
+                    break;
+                case 1:
+                    {
+                        newEnemyObject = (GameObject)GameObject.Instantiate(enemy2Prefab);
+                    }
+                    break;
+                case 2:
+                    {
+                        newEnemyObject = (GameObject)GameObject.Instantiate(enemy3Prefab);
+                    }
+                    break;
+                case 3:
+                    {
+                        newEnemyObject = (GameObject)GameObject.Instantiate(enemy4Prefab);
+                    }
+                    break;
+                default:
+                    {
+                        newEnemyObject = (GameObject)GameObject.Instantiate(enemy2Prefab);
+                    }
+                    break;
             }
 					
 				if (!_tileMap [NewEnemyX, NewEnemyY].blocked) {
