@@ -8,6 +8,8 @@ public class TutorialEnd : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
+            PlayerPrefs.SetInt("tutorial", 1);
+            PlayerPrefs.Save();
             DungeonStates.instance._dungeonLvl++;
             StartCoroutine(ChangeScene());
         }

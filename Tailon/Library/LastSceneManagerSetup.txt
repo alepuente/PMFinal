@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Tailon/Scenes/Tutorial.unity
+- path: Assets/Tailon/Scenes/Menu.unity
   isLoaded: 1
   isActive: 1
