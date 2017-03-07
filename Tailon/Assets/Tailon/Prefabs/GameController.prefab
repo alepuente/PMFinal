@@ -71,6 +71,8 @@ MonoBehaviour:
   _meleeDamage: 30
   _rangeDamage: 5
   _maxStamine: 100
+  upgradePoints: 0
+  maxHealth: 100
 --- !u!114 &114000014149412518
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -89,6 +89,8 @@ public class PlayerController : MonoBehaviour
         _meleeDamage = DungeonStates.instance._meleeDamage;
         _rangeDamage = DungeonStates.instance._rangeDamage;
 
+        _health = DungeonStates.instance.maxHealth;
+
         refreshHUD();
     }
     void OnDestroy()
@@ -118,6 +120,7 @@ public class PlayerController : MonoBehaviour
             DungeonStates.instance._playerLevel = _level;
             DungeonStates.instance._playerCurrentLevelExp = _currentLevelExp;
             DungeonStates.instance._playerNextLevelExp = _nextLevelExp;
+            DungeonStates.instance.upgradePoints++;
         }
     }
     void Update()
@@ -132,8 +135,8 @@ public class PlayerController : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         Animating(h, v);
-        _healthBar.fillAmount = _health / 100f;
-        _lvlText.text = "Level: " + _level;
+        _healthBar.fillAmount = _health / DungeonStates.instance.maxHealth;
+        _lvlText.text = "Level: " + _level;       
     }
 
     public void refreshHUD()
@@ -294,10 +297,14 @@ public class PlayerController : MonoBehaviour
 
     void Pots()
     {
-        if (Input.GetKeyDown(KeyCode.F) && DungeonStates.instance._healthPots > 0 && (_health + DungeonStates.instance._healthRestorage) < DungeonStates.instance._playerHealth)
+        if (Input.GetKeyDown(KeyCode.F) && DungeonStates.instance._healthPots > 0 && _health < DungeonStates.instance._playerHealth)
         {
-            DungeonStates.instance._healthPots--;
+            DungeonStates.instance._healthPots--;          
             _health += DungeonStates.instance._healthRestorage;
+            if (_health>DungeonStates.instance.maxHealth)
+            {
+                _health = DungeonStates.instance.maxHealth;
+            }
             refreshHUD();
         }
         if (Input.GetKey(KeyCode.G) && DungeonStates.instance._staminaPots > 0 && !onStaminaPot)

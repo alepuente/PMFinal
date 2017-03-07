@@ -25,6 +25,8 @@ public class DungeonStates : MonoBehaviour {
     public float _meleeDamage;
     public float _rangeDamage;
     public float _maxStamine;
+    public int upgradePoints;
+    public int maxHealth;
 
     void Awake()
     {

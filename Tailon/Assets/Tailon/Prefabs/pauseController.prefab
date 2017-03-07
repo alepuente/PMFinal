@@ -51,5 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2095432a05f2624479e18711272b230a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hud: {fileID: 1000013265116220, guid: 70e1391f00b716a49bdb2dbc0ea8e993, type: 2}
-  menu: {fileID: 1000011302791300, guid: acc177e80062c3749882f41dcec16e13, type: 2}
+  hud: {fileID: 0}
+  menu: {fileID: 0}

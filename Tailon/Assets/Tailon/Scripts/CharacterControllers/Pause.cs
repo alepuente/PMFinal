@@ -13,7 +13,6 @@ public class Pause : MonoBehaviour {
 		hud.gameObject.SetActive(true);
 		Time.timeScale = 1.0f;
 	}
-
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			if (Time.timeScale == 1.0f) {
