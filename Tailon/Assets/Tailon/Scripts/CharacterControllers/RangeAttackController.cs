@@ -43,7 +43,7 @@ public class RangeAttackController : MonoBehaviour {
             if (obj == null) return;
             obj.transform.position = _playerController._bow.transform.position;
             obj.transform.rotation = gameObject.transform.rotation;
-            obj.GetComponent<Projectile>().setDamage(_playerController._rangeDamage);
+            obj.GetComponent<Projectile>().setDamage(DungeonStates.instance._rangeDamage);
             obj.SetActive(true);
             timerAttack = 0.0f;
         }

@@ -17,11 +17,14 @@ public class DungeonStates : MonoBehaviour {
     public float _playerNextLevelExp;
     public float _playerHealth;
     public int _dungeonLvl;
+
+
     public int _healthRestorage;
     public int _healthPots;
     public int _staminaRestorage;
     public int _staminaPots;
     public int _money;
+
     public float _meleeDamage;
     public float _rangeDamage;
     public float _maxStamine;
@@ -49,13 +52,8 @@ public class DungeonStates : MonoBehaviour {
 		roomMinSize = 8;
 		roomMaxMonsters = 2;
 		maxRooms = 3;
-        _playerLevel = 1;
        _dungeonLvl = 1;
-       _playerCurrentLevelExp = 0;
        _playerHealth = 100;
-       _playerNextLevelExp = 1000;
-       _healthRestorage = 20;
-       _staminaRestorage = 10;
 	}
     public void resetItems()
     {

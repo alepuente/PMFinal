@@ -8,7 +8,8 @@ public class Projectile : MonoBehaviour
 
     void OnEnable()
     {
-        Invoke("Disable", 2f);
+        Invoke("Disable", 0.5f);
+        _damage = DungeonStates.instance._rangeDamage;
     }
     void Disable()
     {

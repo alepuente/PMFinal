@@ -26,7 +26,7 @@ public class MeleeAttackController : MonoBehaviour
         _sword = GameObject.Find("Sword");
         _swordAnim = _sword.GetComponent<Animator>();
         _stamineBar = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._stamineBar;
-        stamine = DungeonStates.instance._maxStamine;
+        stamine = DungeonStates.instance._maxStamine;        
     }
     void OnDrawGizmosSelected()
     {
@@ -37,6 +37,7 @@ public class MeleeAttackController : MonoBehaviour
     {
         if (_playerController._melee)
         {
+
             attack();
         }
 
@@ -66,7 +67,7 @@ public class MeleeAttackController : MonoBehaviour
                     _enemy = hit.GetComponent<EnemyController>();
                     _enemy._isTouching = false;
                     _enemy._stateMachine.CurrentState = new Iddle();
-                    _enemy._health -= _playerController._meleeDamage;
+                    _enemy._health -= DungeonStates.instance._meleeDamage;
                     _enemy._hitEmitter.Play();
                     hit.GetComponent<Rigidbody>().AddForce((gameObject.transform.forward.x * _knockback), Mathf.Abs(_enemy.transform.up.y * _height), (gameObject.transform.forward.z * _knockback));
                 }

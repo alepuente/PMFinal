@@ -40,4 +40,25 @@ public class UpgradeMenu : MonoBehaviour {
         DungeonStates.instance.upgradePoints--;
         disableButtons();
     }
+
+    public void upgradeStamina()
+    {
+        DungeonStates.instance._staminaRestorage += 2;
+        DungeonStates.instance.upgradePoints--;
+        disableButtons();
+    }
+
+    public void upgradeRange()
+    {
+        DungeonStates.instance._rangeDamage += 2;
+        DungeonStates.instance.upgradePoints--;
+        disableButtons();
+    }
+
+    public void upgradeMelee()
+    {
+        DungeonStates.instance._meleeDamage += 5;
+        DungeonStates.instance.upgradePoints--;
+        disableButtons();
+    }
 }

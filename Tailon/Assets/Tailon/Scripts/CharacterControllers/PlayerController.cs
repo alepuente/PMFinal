@@ -27,8 +27,6 @@ public class PlayerController : MonoBehaviour
     //Attack
     public bool _melee = true;
     public bool _range = false;
-    public float _meleeDamage;
-    public float _rangeDamage;
 
     //Assets
     public GameObject _bow;
@@ -85,9 +83,6 @@ public class PlayerController : MonoBehaviour
 
         staminaPotsText = GameObject.FindGameObjectWithTag("Canvas").GetComponent<hUDScript>()._staminaPots;
         staminaPotsText.text = DungeonStates.instance._staminaPots.ToString();
-
-        _meleeDamage = DungeonStates.instance._meleeDamage;
-        _rangeDamage = DungeonStates.instance._rangeDamage;
 
         _health = DungeonStates.instance.maxHealth;
 
