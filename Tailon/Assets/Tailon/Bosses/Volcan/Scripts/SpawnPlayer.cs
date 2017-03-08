@@ -11,7 +11,7 @@ public class SpawnPlayer : MonoBehaviour {
 	void Start () {
         Instantiate(Player, transform.position, transform.rotation);
         Instantiate(MainCamera, transform.position, transform.rotation);
-        Instantiate(Canvas, Vector3.zero, Quaternion.identity);
+        //Instantiate(Canvas, Vector3.zero, Quaternion.identity);
 	}
 	
 	// Update is called once per frame

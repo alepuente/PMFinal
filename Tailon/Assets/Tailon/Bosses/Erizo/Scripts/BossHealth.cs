@@ -9,6 +9,8 @@ public class BossHealth : MonoBehaviour
     public float health = 500;
     public float healthMax = 500;
 
+    public int money = 200;
+
     private Image _healthBar;
 
     void Start()
@@ -24,6 +26,8 @@ public class BossHealth : MonoBehaviour
         if (health <= 0)
         {
             gameObject.GetComponent<SpawnObjectiveTP>().spawnObjectiveTP();
+            DungeonStates.instance._money += money;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().refreshHUD();
             Debug.Log("<color=yellow>BOSS DEATH!</color>");
             Destroy(gameObject);
         }
