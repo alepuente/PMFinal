@@ -98,7 +98,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000011416122168
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +587,8 @@ MonoBehaviour:
   buttons:
   - {fileID: 114000012292492050}
   - {fileID: 114000010746747218}
+  - {fileID: 114000014265628756}
+  - {fileID: 114000011410667132}
   pointsText: {fileID: 114000012378826508}
 --- !u!114 &114000011383417282
 MonoBehaviour:
@@ -655,7 +657,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114000011323010488}
-        m_MethodName: upgradeRange
+        m_MethodName: upgradeStamina
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -819,7 +821,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "+2 \nMelee Damage"
+  m_Text: "+5 \nMelee Damage"
 --- !u!114 &114000012231377942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1249,7 +1251,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114000011323010488}
-        m_MethodName: upgradeRange
+        m_MethodName: upgradeMelee
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

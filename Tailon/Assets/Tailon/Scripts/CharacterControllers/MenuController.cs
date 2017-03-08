@@ -10,6 +10,7 @@ public class MenuController : MonoBehaviour {
     public Button exitButton;
     public Button instructionsButton;
     public Toggle neverAsk;
+    public Button resetButton;
 
 	// Use this for initialization
 	void Start () {
@@ -44,12 +45,14 @@ public class MenuController : MonoBehaviour {
             playButton.gameObject.SetActive(true);
             exitButton.gameObject.SetActive(true);
             instructionsButton.gameObject.SetActive(true);
+            resetButton.gameObject.SetActive(true);
         }
         else
         {
             playButton.gameObject.SetActive(false);
             exitButton.gameObject.SetActive(false);
             instructionsButton.gameObject.SetActive(false);
+            resetButton.gameObject.SetActive(false);
             tutorialPanel.SetActive(true);
         } 
     }

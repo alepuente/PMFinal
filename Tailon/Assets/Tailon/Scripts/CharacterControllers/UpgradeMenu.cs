@@ -39,6 +39,7 @@ public class UpgradeMenu : MonoBehaviour {
         DungeonStates.instance._healthRestorage += 5;
         DungeonStates.instance.upgradePoints--;
         disableButtons();
+        DungeonStates.instance.saveStats();
     }
 
     public void upgradeStamina()
@@ -46,6 +47,7 @@ public class UpgradeMenu : MonoBehaviour {
         DungeonStates.instance._staminaRestorage += 2;
         DungeonStates.instance.upgradePoints--;
         disableButtons();
+        DungeonStates.instance.saveStats();
     }
 
     public void upgradeRange()
@@ -53,6 +55,7 @@ public class UpgradeMenu : MonoBehaviour {
         DungeonStates.instance._rangeDamage += 2;
         DungeonStates.instance.upgradePoints--;
         disableButtons();
+        DungeonStates.instance.saveStats();
     }
 
     public void upgradeMelee()
@@ -60,5 +63,6 @@ public class UpgradeMenu : MonoBehaviour {
         DungeonStates.instance._meleeDamage += 5;
         DungeonStates.instance.upgradePoints--;
         disableButtons();
+        DungeonStates.instance.saveStats();
     }
 }

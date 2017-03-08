@@ -41,9 +41,22 @@ public class DungeonStates : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+
+        if (PlayerPrefs.GetInt("healthRestorage") != 0)
+        {            
         _money = PlayerPrefs.GetInt("money");
+        _healthRestorage = PlayerPrefs.GetInt("healthRestorage");
+        _staminaRestorage = PlayerPrefs.GetInt("staminaRestorage");
+        _meleeDamage = PlayerPrefs.GetFloat("meleeDamage");
+        _rangeDamage = PlayerPrefs.GetFloat("rangeDamage");
+        _playerLevel = PlayerPrefs.GetInt("lvl");
+        _playerNextLevelExp = PlayerPrefs.GetFloat("nextLvl");
+        _playerCurrentLevelExp = PlayerPrefs.GetFloat("currentEXP");
+        upgradePoints = PlayerPrefs.GetInt("upgradePoints");
+        }
+
         DontDestroyOnLoad(gameObject);
-    }
+    }    
 
 	public void restartStates(){
 		dungeonWidth = 30;
@@ -65,6 +78,13 @@ public class DungeonStates : MonoBehaviour {
         PlayerPrefs.SetInt("money", _money);
         PlayerPrefs.SetInt("healthRestorage", _healthRestorage);
         PlayerPrefs.SetInt("staminaRestorage", _staminaRestorage);
+        PlayerPrefs.SetFloat("meleeDamage", _meleeDamage);
+        PlayerPrefs.SetFloat("rangeDamage", _rangeDamage);
+        PlayerPrefs.SetInt("lvl", _playerLevel);
+        PlayerPrefs.SetFloat("nextLvl", _playerNextLevelExp);
+        PlayerPrefs.SetFloat("currentEXP", _playerCurrentLevelExp);
+        PlayerPrefs.SetInt("upgradePoints", upgradePoints);
+
         PlayerPrefs.Save();
     }
 }
